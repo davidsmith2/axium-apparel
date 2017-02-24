@@ -5,22 +5,25 @@
 @fa-font-path: '../../bower_components/fontawesome/fonts';
 
 @import '_header';
+@import '_nav';
 @import '_footer';
+@import (reference) '_mixins';
 
 body {
   font-family: 'Raleway', sans-serif;
 }
 
+header {
+  .header-footer;
+  height: 100px;
+}
+
+footer {
+  .header-footer;
+  height: 67px;
+}
+
 .social-icon__twitter {
   position: relative;
   top: 4px;
-}
-
-.nav__links {
-  li.dropdown {
-    width: 20%;
-    >.dropdown-menu {
-      width: auto;
-    }
-  }
 }

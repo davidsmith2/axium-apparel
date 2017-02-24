@@ -8310,12 +8310,6 @@ button.close {
   border: 0;
   box-shadow: none;
 }
-.header {
-  background-color: black;
-  color: white;
-  font-size: 12px;
-  height: 100px;
-}
 .header__logo {
   position: relative;
   top: 50%;
@@ -8343,11 +8337,11 @@ button.close {
 .header__links li + li:before {
   content: ' | ';
 }
-.footer {
-  background-color: black;
-  color: white;
-  font-size: 12px;
-  height: 67px;
+.nav__links li.dropdown {
+  width: 20%;
+}
+.nav__links li.dropdown > .dropdown-menu {
+  width: auto;
 }
 .footer__logo {
   position: relative;
@@ -8373,13 +8367,19 @@ button.close {
 body {
   font-family: 'Raleway', sans-serif;
 }
+header {
+  background-color: black;
+  color: white;
+  font-size: 12px;
+  height: 100px;
+}
+footer {
+  background-color: black;
+  color: white;
+  font-size: 12px;
+  height: 67px;
+}
 .social-icon__twitter {
   position: relative;
   top: 4px;
-}
-.nav__links li.dropdown {
-  width: 20%;
-}
-.nav__links li.dropdown > .dropdown-menu {
-  width: auto;
 }
