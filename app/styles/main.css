@@ -7421,6 +7421,9 @@ button.close {
   top: 50%;
   transform: translateY(-50%);
 }
+body {
+  font-family: 'Raleway', sans-serif;
+}
 .social-icon__twitter {
   position: relative;
   top: 4px;
