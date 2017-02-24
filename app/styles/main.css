@@ -7340,3 +7340,28 @@ button.close {
 .fa-bomb:before {
   content: "\f1e2";
 }
+.footer {
+  background-color: black;
+  color: white;
+  font-size: 12px;
+  height: 100px;
+}
+.footer__logo {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.footer__links {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.footer__social {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.social-icon__twitter {
+  position: relative;
+  top: 4px;
+}
