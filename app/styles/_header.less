@@ -1,26 +1,35 @@
+@import "_custom-search-input";
 @import (reference) "_mixins";
 
-.footer {
+.header {
   background-color: black;
   color: white;
   font-size: @font-size-small;
-  height: 67px;
+  height: 100px;
 }
 
-.footer__logo {
+.header__logo {
   .vertically-center;
 }
 
-.footer__links {
+.header__utils {
   .vertically-center;
+}
+
+.header__search {
+  margin-bottom: 0.5em;
+}
+
+.header__social {
+  .pull-left;
+}
+
+.header__links {
+  .pull-right;
   li {
     padding: 0;
     +li:before {
       content: ' | ';
     }
   }
-}
-
-.footer__social {
-  .vertically-center;
 }

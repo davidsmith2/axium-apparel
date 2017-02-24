@@ -2367,8 +2367,8 @@ input[type="button"].btn-block {
 }
 @font-face {
   font-family: 'Glyphicons Halflings';
-  src: url('bower_components/components-bootstrap/fonts/glyphicons-halflings-regular.eot');
-  src: url('bower_components/components-bootstrap/fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), url('bower_components/components-bootstrap/fonts/glyphicons-halflings-regular.woff') format('woff'), url('bower_components/components-bootstrap/fonts/glyphicons-halflings-regular.ttf') format('truetype'), url('bower_components/components-bootstrap/fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
+  src: url('../../bower_components/components-bootstrap/fonts/glyphicons-halflings-regular.eot');
+  src: url('../../bower_components/components-bootstrap/fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), url('../../bower_components/components-bootstrap/fonts/glyphicons-halflings-regular.woff') format('woff'), url('../../bower_components/components-bootstrap/fonts/glyphicons-halflings-regular.ttf') format('truetype'), url('../../bower_components/components-bootstrap/fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
 }
 .glyphicon {
   position: relative;
@@ -7340,11 +7340,65 @@ button.close {
 .fa-bomb:before {
   content: "\f1e2";
 }
-.footer {
+#custom-search-input {
+  border: solid 1px #E4E4E4;
+  border-radius: 6px;
+  background-color: #fff;
+}
+#custom-search-input input {
+  border: 0;
+  box-shadow: none;
+}
+#custom-search-input button {
+  margin: 2px 0 0 0;
+  background: none;
+  box-shadow: none;
+  border: 0;
+  color: #666666;
+  padding: 0 8px 0 10px;
+}
+#custom-search-input button:hover {
+  border: 0;
+  box-shadow: none;
+}
+.header {
   background-color: black;
   color: white;
   font-size: 12px;
   height: 100px;
+}
+.header__logo {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.header__utils {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.header__search {
+  margin-bottom: 0.5em;
+}
+.header__social {
+  float: left !important;
+  float: left;
+}
+.header__links {
+  float: right !important;
+  float: right;
+}
+.header__links li {
+  padding: 0;
+}
+.header__links li + li:before {
+  content: ' | ';
+}
+.footer {
+  background-color: black;
+  color: white;
+  font-size: 12px;
+  height: 67px;
 }
 .footer__logo {
   position: relative;
@@ -7355,6 +7409,12 @@ button.close {
   position: relative;
   top: 50%;
   transform: translateY(-50%);
+}
+.footer__links li {
+  padding: 0;
+}
+.footer__links li + li:before {
+  content: ' | ';
 }
 .footer__social {
   position: relative;

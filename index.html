@@ -11,8 +11,47 @@
     </head>
     <body>
         <div class="container">
-            <div class="header">
-                <h3 class="text-muted"><i class="fa fa-cogs"></i>Your Marionette App</h3>
+            <div class="header row">
+                <div class="header__logo col-sm-4">
+                    <img src="app/img/axiom-logo-main.png">
+                </div>
+                <div class="header__utils col-sm-4 col-sm-offset-4">
+                    <div class="header__search row">
+                        <div class="col-sm-12">
+                            <div id="custom-search-input">
+                                <div class="input-group col-md-12">
+                                    <input type="text" class="form-control input-sm" placeholder="SEARCH FOR GEAR">
+                                    <span class="input-group-btn">
+                                        <button class="btn btn-info btn-lg" type="button">
+                                            <i class="glyphicon glyphicon-search"></i>
+                                        </button>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="header__social">
+                                <ul class="list-inline">
+                                    <li>
+                                        <img src="app/img/fb-icon.png">
+                                    </li>
+                                    <li>
+                                        <img class="social-icon__twitter" src="app/img/twitter-icon.png">
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="header__links">
+                                <ul class="list-inline">
+                                    <li>My Account</li>
+                                    <li>Cart</li>
+                                    <li>Logout</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <main role="main" id="main">
@@ -24,7 +63,7 @@
                     <img src="app/img/axiom-logo-small.png">
                 </div>
                 <div class="footer__links col-sm-7 col-sm-offset-1">
-                    <ul class="list-inline">
+                    <ul class="list-inline pull-right">
                         <li>About Us</li>
                         <li>Contact Us</li>
                         <li>Privacy Policy</li>
@@ -33,7 +72,7 @@
                     </ul>
                 </div>
                 <div class="footer__social col-sm-2">
-                    <ul class="list-inline">
+                    <ul class="list-inline pull-right">
                         <li>
                             <img class="social-icon__fb" src="app/img/fb-icon.png">
                         </li>
