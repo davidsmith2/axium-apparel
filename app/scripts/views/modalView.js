@@ -1,7 +1,9 @@
-define([],
-function() {
+define([
+  'scripts/config'
+],
+function(config) {
   var ModalView = Marionette.LayoutView.extend({
-    template: "app/templates/modal.hbs",
+    template: config.templates.modal,
     ui: {
       root: '.modal'
     },

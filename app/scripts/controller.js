@@ -1,4 +1,5 @@
 define([
+  'scripts/config',
   'scripts/entities/reviewCollection',
   'scripts/entities/reviewModel',
   'scripts/router',
@@ -7,7 +8,7 @@ define([
   'scripts/views/reviewModalView',
   'scripts/views/reviewsView'
 ],
-function(reviewCollection, ReviewModel, Router, LayoutView, ModalView, ReviewModalView, ReviewsView) {
+function(config, reviewCollection, ReviewModel, Router, LayoutView, ModalView, ReviewModalView, ReviewsView) {
 
   console.log('functions');
 
@@ -37,13 +38,7 @@ function(reviewCollection, ReviewModel, Router, LayoutView, ModalView, ReviewMod
    * @param modalView
    */
   var onReviewSubmit = function(modalView) {
-    this.model.set({
-      user: {
-        name: 'David Smith',
-        avatar: 'reviewer-placeholder.png'
-      },
-      date: new Date()
-    });
+    this.model.set(config.reviewData['_2']);
     reviewCollection.add(this.model);
     modalView.hide();
   };
@@ -82,21 +77,21 @@ function(reviewCollection, ReviewModel, Router, LayoutView, ModalView, ReviewMod
 
   /**
    * @public
-   */
-  var onRenderLayout = function() {
-    this.collectionRegion.show(new ReviewsView({
-      collection: reviewCollection
-    }));
-  };
-
-  /**
-   * @public
    * @param modalRegion
    */
   var onCreateReview = function(modalRegion) {
     var modalView = new ModalView();
     modalView.on('before:show', _.partial(onBeforeShowModal, modalView));
     modalRegion.show(modalView);
+  };
+
+  /**
+   * @public
+   */
+  var onRenderLayout = function() {
+    this.collectionRegion.show(new ReviewsView({
+      collection: reviewCollection
+    }));
   };
 
   /**
@@ -120,8 +115,8 @@ function(reviewCollection, ReviewModel, Router, LayoutView, ModalView, ReviewMod
   return {
     onBeforeStartApp: onBeforeStartApp,
     onStartApp: onStartApp,
-    onCreateReview: onCreateReview,
     onRenderLayout: onRenderLayout,
+    onCreateReview: onCreateReview,
     onBeforeShowModal: onBeforeShowModal,
     renderStars: renderStars
   };

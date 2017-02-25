@@ -1,10 +1,10 @@
 define([
-
+  'scripts/config'
 ],
-function() {
+function(config) {
   var LayoutView = Marionette.LayoutView.extend({
     el : '#product__reviews',
-    template: "app/templates/layout.hbs",
+    template: config.templates.layout,
     regions: {
       collectionRegion: '#product__reviews--collection'
     },

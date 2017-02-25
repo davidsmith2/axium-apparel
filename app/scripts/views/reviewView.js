@@ -1,10 +1,10 @@
 define([
-
+  'scripts/config'
 ],
-function() {
+function(config) {
   var ReviewView = Marionette.ItemView.extend({
-    template: "app/templates/review.hbs",
-    className: "row"
+    template: config.templates.review,
+    className: 'row'
   });
   return ReviewView;
 });

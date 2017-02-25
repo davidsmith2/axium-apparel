@@ -1,9 +1,10 @@
 define([
+  'scripts/config'
 ],
-function() {
+function(config) {
 
   var Body = Marionette.ItemView.extend({
-    template: "app/templates/reviewModalBody.hbs",
+    template: config.templates.reviewModalBody,
     ui: {
       input: '.js-input',
       star: '.js-star'
@@ -21,7 +22,7 @@ function() {
   });
 
   var Footer = Marionette.ItemView.extend({
-    template: "app/templates/reviewModalFooter.hbs",
+    template: config.templates.reviewModalFooter,
     ui: {
       btn: '.js-submit-review'
     },
