@@ -1,10 +1,10 @@
 define([
-  'js/entities/reviewCollection',
-  'js/entities/reviewModel',
-  'js/views/layoutView',
-  'js/views/modalView',
-  'js/views/reviewModalView',
-  'js/views/reviewsView',
+  'scripts/entities/reviewCollection',
+  'scripts/entities/reviewModel',
+  'scripts/views/layoutView',
+  'scripts/views/modalView',
+  'scripts/views/reviewModalView',
+  'scripts/views/reviewsView',
   'router'
 ],
 function(reviewCollection, ReviewModel, LayoutView, ModalView, ReviewModalView, ReviewsView, Router) {

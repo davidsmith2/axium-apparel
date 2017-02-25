@@ -1,5 +1,5 @@
 define([
-  'js/entities/reviewModel'
+  'scripts/entities/reviewModel'
 ],
 function(ReviewModel) {
   var ReviewCollection = Backbone.Collection.extend({

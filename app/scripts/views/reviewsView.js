@@ -1,5 +1,5 @@
 define([
-  'js/views/reviewView'
+  'scripts/views/reviewView'
 ],
 function(ReviewView) {
   var ReviewsView = Marionette.CollectionView.extend({
