@@ -13,11 +13,17 @@ function(config) {
       'keyup @ui.input': 'onInputKeyup',
       'click @ui.star': 'onStarClick'
     },
+    modelEvents: {
+      'change:star_rating': 'reRenderStars'
+    },
     onInputKeyup: function(e) {
       this.trigger('input:keyup', e.target);
     },
     onStarClick: function(e) {
       this.trigger('star:click', $(e.target).index(), this.ui.star);
+    },
+    reRenderStars: function() {
+      Handlebars.helpers.reRenderStars(this.ui.star, this.model.get('star_rating'));
     }
   });
 

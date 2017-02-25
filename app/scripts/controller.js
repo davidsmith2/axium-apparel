@@ -17,11 +17,7 @@ function(config, reviewCollection, ReviewModel, Router, LayoutView, ModalView, R
    * @param starNum
    * @param stars
    */
-  var onStarClick = function(starNum, stars) {
-    _.each(stars, function(star, index) {
-      var imgName = (starNum < index) ? 'star' : 'star-on';
-      $(star).attr('src', 'app/img/' + imgName + '.png');
-    });
+  var onStarClick = function(starNum) {
     this.model.set('star_rating', ++starNum);
   };
 
@@ -41,19 +37,6 @@ function(config, reviewCollection, ReviewModel, Router, LayoutView, ModalView, R
     this.model.set(config.reviewData['_2']);
     reviewCollection.add(this.model);
     modalView.hide();
-  };
-
-  /**
-   * @public
-   * @param stars
-   * @returns {string}
-   */
-  var renderStars = function(stars) {
-    var str = '';
-    for (var i = 0; i < stars; i++) {
-      str += '<img class="js-star" src="app/img/star.png">';
-    }
-    return str;
   };
 
   /**
@@ -117,8 +100,7 @@ function(config, reviewCollection, ReviewModel, Router, LayoutView, ModalView, R
     onStartApp: onStartApp,
     onRenderLayout: onRenderLayout,
     onCreateReview: onCreateReview,
-    onBeforeShowModal: onBeforeShowModal,
-    renderStars: renderStars
+    onBeforeShowModal: onBeforeShowModal
   };
 
 });

@@ -69,7 +69,7 @@ function program1(depth0,data) {
   buffer += escapeExpression(stack2)
     + "\n        </div>\n        <div class=\"pull-left\">\n            ";
   options = {hash:{},inverse:self.noop,fn:self.program(1, program1, data),data:data};
-  stack2 = ((stack1 = helpers.starHelper || (depth0 && depth0.starHelper)),stack1 ? stack1.call(depth0, (depth0 && depth0.star_rating), options) : helperMissing.call(depth0, "starHelper", (depth0 && depth0.star_rating), options));
+  stack2 = ((stack1 = helpers.renderStars || (depth0 && depth0.renderStars)),stack1 ? stack1.call(depth0, (depth0 && depth0.star_rating), options) : helperMissing.call(depth0, "renderStars", (depth0 && depth0.star_rating), options));
   if(stack2 || stack2 === 0) { buffer += stack2; }
   buffer += "\n        </div>\n    </div>\n    <p>";
   if (stack2 = helpers.description) { stack2 = stack2.call(depth0, {hash:{},data:data}); }
@@ -92,7 +92,7 @@ function program1(depth0,data) {
 
   buffer += "<form class=\"row\">\n    <div class=\"col-sm-12 margin-bottom-1\">\n        <div class=\"row\">\n            <div class=\"col-sm-6\">\n                <label for=\"star-rating\">\n                    Please rate the Tough Mojo Jacket\n                </label>\n            </div>\n            <div class=\"col-sm-6\">\n                ";
   options = {hash:{},inverse:self.noop,fn:self.program(1, program1, data),data:data};
-  stack2 = ((stack1 = helpers.starHelper || (depth0 && depth0.starHelper)),stack1 ? stack1.call(depth0, 5, options) : helperMissing.call(depth0, "starHelper", 5, options));
+  stack2 = ((stack1 = helpers.renderStars || (depth0 && depth0.renderStars)),stack1 ? stack1.call(depth0, 5, options) : helperMissing.call(depth0, "renderStars", 5, options));
   if(stack2 || stack2 === 0) { buffer += stack2; }
   buffer += "\n            </div>\n        </div>\n    </div>\n    <div class=\"col-sm-12 margin-bottom-1\">\n        <div class=\"row\">\n            <div class=\"col-sm-3\">\n                <label for=\"title\">\n                    Review Title\n                </label>\n            </div>\n            <div class=\"col-sm-9\">\n                <input\n                    class=\"js-input input-lg\"\n                    id=\"title\"\n                    name=\"title\"\n                    type=\"text\"\n                    style=\"width: 100%\"\n                    value=\"";
   if (stack2 = helpers.title) { stack2 = stack2.call(depth0, {hash:{},data:data}); }
