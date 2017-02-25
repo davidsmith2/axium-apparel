@@ -1,7 +1,11 @@
 define([
+  'js/entities/reviewModel'
 ],
-function() {
-  return new Backbone.Collection([
+function(ReviewModel) {
+  var ReviewCollection = Backbone.Collection.extend({
+    model: ReviewModel
+  });
+  return new ReviewCollection([
     {
       "user": {
         "name": "Shaun White",

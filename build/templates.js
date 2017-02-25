@@ -82,10 +82,19 @@ function program1(depth0,data) {
 this["JST"]["app/templates/reviewModalBody.hbs"] = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
   this.compilerInfo = [4,'>= 1.0.0'];
 helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
-  
+  var buffer = "", stack1, functionType="function", escapeExpression=this.escapeExpression;
 
 
-  return "<div>Test</div>";
+  buffer += "<form class=\"row\">\n    <div class=\"col-sm-12 margin-bottom-1\">\n        <div class=\"row\">\n            <div class=\"col-sm-6\">\n                <label for=\"star-rating\">\n                    Please rate the Tough Mojo Jacket\n                </label>\n            </div>\n            <div class=\"col-sm-6\"></div>\n        </div>\n    </div>\n    <div class=\"col-sm-12 margin-bottom-1\">\n        <div class=\"row\">\n            <div class=\"col-sm-3\">\n                <label for=\"title\">\n                    Review Title\n                </label>\n            </div>\n            <div class=\"col-sm-9\">\n                <input\n                    class=\"js-input input-lg\"\n                    id=\"title\"\n                    name=\"title\"\n                    type=\"text\"\n                    style=\"width: 100%\"\n                    value=\"";
+  if (stack1 = helpers.title) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
+  else { stack1 = (depth0 && depth0.title); stack1 = typeof stack1 === functionType ? stack1.call(depth0, {hash:{},data:data}) : stack1; }
+  buffer += escapeExpression(stack1)
+    + "\"\n                >\n            </div>\n        </div>\n    </div>\n    <div class=\"col-sm-12 margin-bottom-1\">\n        <label class=\"sr-only\" for=\"description\">\n            Review Description\n        </label>\n        <textarea\n            class=\"js-input input-lg\"\n            name=\"description\"\n            placeholder=\"- Write your review here -\"\n            style=\"width: 100%\"\n            value=\"";
+  if (stack1 = helpers.description) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
+  else { stack1 = (depth0 && depth0.description); stack1 = typeof stack1 === functionType ? stack1.call(depth0, {hash:{},data:data}) : stack1; }
+  buffer += escapeExpression(stack1)
+    + "\"\n        >\n        </textarea>\n    </div>\n</form>";
+  return buffer;
   });
 
 this["JST"]["app/templates/reviewModalFooter.hbs"] = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {

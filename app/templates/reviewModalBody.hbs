@@ -1,1 +1,44 @@
-<div>Test</div>
+<form class="row">
+    <div class="col-sm-12 margin-bottom-1">
+        <div class="row">
+            <div class="col-sm-6">
+                <label for="star-rating">
+                    Please rate the Tough Mojo Jacket
+                </label>
+            </div>
+            <div class="col-sm-6"></div>
+        </div>
+    </div>
+    <div class="col-sm-12 margin-bottom-1">
+        <div class="row">
+            <div class="col-sm-3">
+                <label for="title">
+                    Review Title
+                </label>
+            </div>
+            <div class="col-sm-9">
+                <input
+                    class="js-input input-lg"
+                    id="title"
+                    name="title"
+                    type="text"
+                    style="width: 100%"
+                    value="{{title}}"
+                >
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-12 margin-bottom-1">
+        <label class="sr-only" for="description">
+            Review Description
+        </label>
+        <textarea
+            class="js-input input-lg"
+            name="description"
+            placeholder="- Write your review here -"
+            style="width: 100%"
+            value="{{description}}"
+        >
+        </textarea>
+    </div>
+</form>

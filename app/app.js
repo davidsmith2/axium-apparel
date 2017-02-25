@@ -1,14 +1,20 @@
 define([
-  'js/entities/review',
-	'js/entities/reviews',
-  'js/views/layout',
-	'js/views/modal',
-  'js/views/reviewModal',
+  'js/entities/reviewCollection',
+  'js/entities/reviewModel',
+  'js/views/layoutView',
+	'js/views/modalView',
+  'js/views/reviewModalView',
+  'js/views/reviewsView',
   'helpers'
 ],
-function(Review, reviews, LayoutView, ModalView, ReviewModalView) {
+function(reviewCollection, ReviewModel, LayoutView, ModalView, ReviewModalView, ReviewsView) {
 
-	var app = {}, JST = window.JST = window.JST || {};
+  Marionette.Renderer.render = function(template, data){
+    if (!JST[template]) throw "Template '" + template + "' not found!";
+    return JST[template](data);
+  };
+
+  var app = {}, JST = window.JST = window.JST || {};
 
 	app = new Marionette.Application();
 
@@ -16,30 +22,27 @@ function(Review, reviews, LayoutView, ModalView, ReviewModalView) {
     modalRegion: '#modal-region'
 	});
 	
-	Marionette.Renderer.render = function(template, data){
-		if (!JST[template]) throw "Template '" + template + "' not found!";
-		return JST[template](data);
-	};
-
 	var layoutView = new LayoutView();
 
 	layoutView.on('review:create', function() {
     var modalView = new ModalView();
 		modalView.on('before:show', function() {
-      var reviewModalBodyView = new ReviewModalView.Body();
+      var reviewModalBodyView = new ReviewModalView.Body({
+        model: new ReviewModel()
+      });
       var reviewModalFooterView = new ReviewModalView.Footer();
       reviewModalFooterView.on('review:submit', function(e) {
-        var review = new Review({
+        var staticData = {
           user: {
             name: 'David Smith',
             avatar: 'reviewer-placeholder.png'
           },
-          title: 'title',
-          description: 'description',
-          star_rating: 1,
           date: new Date()
-        });
-        reviews.add(review);
+        };
+        var dynamicData = reviewModalBodyView.model.attributes;
+        var reviewModel = new ReviewModel(_.extend({}, staticData, dynamicData));
+        reviewCollection.add(reviewModel);
+        modalView.hide();
 			});
       this.bodyRegion.show(reviewModalBodyView);
       this.footerRegion.show(reviewModalFooterView);
@@ -48,13 +51,8 @@ function(Review, reviews, LayoutView, ModalView, ReviewModalView) {
 	});
 
 	layoutView.on('render', function() {
-		this.collectionRegion.show(new Marionette.CollectionView({
-      collection: reviews,
-      className: "col-sm-12",
-      childView: Marionette.ItemView.extend({
-        template: "app/templates/review.hbs",
-        className: "row"
-      })
+		this.collectionRegion.show(new ReviewsView({
+		  collection: reviewCollection
     }));
 	});
 	
