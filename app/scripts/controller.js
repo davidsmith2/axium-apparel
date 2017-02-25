@@ -11,10 +11,11 @@ function(reviewCollection, ReviewModel, Router, LayoutView, ModalView, ReviewMod
 
   console.log('functions');
 
-  var onInputKeyup = function(target) {
-    this.model.set(target.name, target.value);
-  };
-
+  /**
+   * @private
+   * @param starNum
+   * @param stars
+   */
   var onStarClick = function(starNum, stars) {
     _.each(stars, function(star, index) {
       var imgName = (starNum < index) ? 'star' : 'star-on';
@@ -23,14 +24,18 @@ function(reviewCollection, ReviewModel, Router, LayoutView, ModalView, ReviewMod
     this.model.set('star_rating', ++starNum);
   };
 
-  var renderStars = function(stars) {
-    var str = '';
-    for (var i = 0; i < stars; i++) {
-      str += '<img class="js-star" src="app/img/star.png">';
-    }
-    return str;
+  /**
+   * @private
+   * @param target
+   */
+  var onInputKeyup = function(target) {
+    this.model.set(target.name, target.value);
   };
 
+  /**
+   * @private
+   * @param modalView
+   */
   var onReviewSubmit = function(modalView) {
     this.model.set({
       user: {
@@ -43,6 +48,23 @@ function(reviewCollection, ReviewModel, Router, LayoutView, ModalView, ReviewMod
     modalView.hide();
   };
 
+  /**
+   * @public
+   * @param stars
+   * @returns {string}
+   */
+  var renderStars = function(stars) {
+    var str = '';
+    for (var i = 0; i < stars; i++) {
+      str += '<img class="js-star" src="app/img/star.png">';
+    }
+    return str;
+  };
+
+  /**
+   * @public
+   * @param modalView
+   */
   var onBeforeShowModal = function(modalView) {
     var reviewModel = new ReviewModel();
     var reviewModalBodyView = new ReviewModalView.Body({
@@ -58,37 +80,49 @@ function(reviewCollection, ReviewModel, Router, LayoutView, ModalView, ReviewMod
     this.footerRegion.show(reviewModalFooterView);
   };
 
-  var onCreateReview = function(modalRegion) {
-    var modalView = new ModalView();
-    modalView.on('before:show', _.partial(onBeforeShowModal, modalView));
-    modalRegion.show(modalView);
-  };
-
+  /**
+   * @public
+   */
   var onRenderLayout = function() {
     this.collectionRegion.show(new ReviewsView({
       collection: reviewCollection
     }));
   };
 
-  var onBeforeStartApp = function(options) {
-    var router = new Router();
-    Backbone.history.start({pushState: true});
+  /**
+   * @public
+   * @param modalRegion
+   */
+  var onCreateReview = function(modalRegion) {
+    var modalView = new ModalView();
+    modalView.on('before:show', _.partial(onBeforeShowModal, modalView));
+    modalRegion.show(modalView);
   };
 
-  var onStartApp = function(options) {
+  /**
+   * @public
+   */
+  var onStartApp = function() {
     var layoutView = new LayoutView();
     layoutView.on('review:create', _.partial(onCreateReview, this.modalRegion));
     layoutView.on('render', onRenderLayout);
     layoutView.render();
   };
 
+  /**
+   * @public
+   */
+  var onBeforeStartApp = function() {
+    var router = new Router();
+    Backbone.history.start({pushState: true});
+  };
+
   return {
-    onReviewSubmit: onReviewSubmit,
-    onBeforeShowModal: onBeforeShowModal,
-    onCreateReview: onCreateReview,
-    onRenderLayout: onRenderLayout,
     onBeforeStartApp: onBeforeStartApp,
     onStartApp: onStartApp,
+    onCreateReview: onCreateReview,
+    onRenderLayout: onRenderLayout,
+    onBeforeShowModal: onBeforeShowModal,
     renderStars: renderStars
   };
 

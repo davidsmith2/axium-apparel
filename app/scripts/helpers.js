@@ -1,6 +1,6 @@
 define([
-  'scripts/functions'
+  'scripts/controller'
 ],
-function(functions) {
-  Handlebars.registerHelper('starHelper', functions.renderStars);
+function(controller) {
+  Handlebars.registerHelper('starHelper', controller.renderStars);
 });

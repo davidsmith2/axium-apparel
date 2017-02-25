@@ -1,14 +1,14 @@
 define([
-  'scripts/functions',
+  'scripts/controller',
   'scripts/helpers'
 ],
-function(functions) {
+function(controller) {
   console.log('app');
 	var app = new Marionette.Application();
   app.addRegions({
     modalRegion: '#modal-region'
   });
-  app.on('before:start', functions.onBeforeStartApp);
-	app.on('start', functions.onStartApp);
+  app.on('before:start', controller.onBeforeStartApp);
+	app.on('start', controller.onStartApp);
 	return app;
 });
