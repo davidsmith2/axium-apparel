@@ -1,10 +1,9 @@
 define([
   'scripts/config',
   'scripts/entities',
-  'scripts/router',
   'scripts/views'
 ],
-function(config, Entities, Router, Views) {
+function(config, Entities, Views) {
 
   console.log('controller');
 
@@ -15,7 +14,6 @@ function(config, Entities, Router, Views) {
         collection: new Entities.ReviewCollection(config.reviewData['_1'])
       })
     },
-    router: new Router(),
     initialize: function(options) {
       this.modalRegion = options.modalRegion;
     },

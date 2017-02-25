@@ -1,7 +1,7 @@
 require.config({
-	baseUrl: "app",
+	baseUrl: 'app',
     paths: {
-		'app': './scripts/app',
+		'App': './scripts/app',
 		'templates': '../build/templates',
 		'jquery': '../bower_components/jquery/dist/jquery',
 		'backbone': '../bower_components/backbone/backbone',
@@ -10,7 +10,7 @@ require.config({
 		'backbone.babysitter': '../bower_components/backbone.babysitter/lib/backbone.babysitter',
 		'backbone.wreqr': '../bower_components/backbone.wreqr/lib/backbone.wreqr',
 		'bootstrap': '../bower_components/components-bootstrap/js/bootstrap',
-		'handlebars': '../bower_components/handlebars/handlebars',
+		'handlebars': '../bower_components/handlebars/handlebars'
 	},
 	shim : {
 		jquery : {
@@ -30,7 +30,7 @@ require.config({
 		bootstrap : {
 			deps : ['jquery'],
 		},
-		app : {
+		App : {
 			deps : ['jquery', 'underscore', 'backbone', 'marionette'],
 		},
 		templates : {
@@ -39,25 +39,31 @@ require.config({
 });
 
 require([
-	"jquery",
-	"backbone",
-	"underscore",
-	"marionette",
-	"app",
-	"templates",
-	"handlebars",
-	"bootstrap"
+	'jquery',
+	'backbone',
+	'underscore',
+	'marionette',
+	'App',
+	'templates',
+	'handlebars',
+	'bootstrap'
 ],
-function(jquery, backbone, underscore, marionette, app) {
+function(jquery, backbone, underscore, marionette, App) {
 
 	console.log('main');
 
   JST = window.JST || {};
 
   marionette.Renderer.render = function(template, data) {
-    if (!JST[template]) throw "Template '" + template + "' not found!";
+    if (!JST[template]) throw "Template " + template + " not found!";
     return JST[template](data);
   };
+  
+  var app = new App();
+
+  app.addRegions({
+    modalRegion: '#modal-region'
+  });
 
   app.start({});
 
