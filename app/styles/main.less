@@ -6,6 +6,7 @@
 
 @import '_header';
 @import '_nav';
+@import '_main';
 @import '_footer';
 @import (reference) '_mixins';
 
@@ -14,13 +15,15 @@ body {
 }
 
 header {
-  .header-footer;
-  height: 100px;
+  .header-footer(100px);
+}
+
+main {
+  color: white;
 }
 
 footer {
-  .header-footer;
-  height: 67px;
+  .header-footer(67px);
 }
 
 .social-icon__twitter {

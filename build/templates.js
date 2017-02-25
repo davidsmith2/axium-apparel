@@ -6,5 +6,5 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   
 
 
-  return "<p>\n	Handlebar templated rendered!\n</p>";
+  return "	Handlebar templated rendered!\n";
   });

@@ -10,7 +10,7 @@ function() {
 	};
 	
 	Layout = Backbone.Marionette.LayoutView.extend({
-				el : '#main',
+				el : '.product__reviews-app',
 				template: "app/templates/main-layout.hbs",						
 			});
 

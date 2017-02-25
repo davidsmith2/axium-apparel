@@ -8343,6 +8343,38 @@ button.close {
 .nav__links li.dropdown > .dropdown-menu {
   width: auto;
 }
+.product__order-form {
+  background: url("../img/topsection-background.png") no-repeat;
+  padding: 1em;
+}
+.product__order-form select {
+  background-color: gray;
+  width: 12em;
+}
+.product__order-form input[type=text] {
+  color: black;
+  width: 6em;
+}
+.product__order-form input[type=submit] {
+  background-color: turquoise;
+  width: 12em;
+}
+.product__order-form button[type=button] {
+  background-color: gray;
+  width: 3em;
+}
+.product__description {
+  background-color: #666666;
+  padding: 1em;
+}
+.product__reviews {
+  background-color: #000066;
+  padding: 1em;
+}
+.product__image--order-form {
+  display: block;
+  margin: 0 auto;
+}
 .footer__logo {
   position: relative;
   top: 50%;
@@ -8372,6 +8404,9 @@ header {
   color: white;
   font-size: 12px;
   height: 100px;
+}
+main {
+  color: white;
 }
 footer {
   background-color: black;
