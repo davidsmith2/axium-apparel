@@ -15,7 +15,7 @@ function(reviews) {
 	
 	Layout = Backbone.Marionette.LayoutView.extend({
 		el : '#product__reviews',
-		template: "app/templates/main-layout.hbs",
+		template: "app/templates/layout.hbs",
 		regions: {
 			collectionRegion: '#product__reviews--collection'
 		}
