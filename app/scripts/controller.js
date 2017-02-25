@@ -11,7 +11,7 @@ function(config, Entities, Views) {
     views: {
       layout: new Views.Layout(),
       reviews: new Views.Reviews({
-        collection: new Entities.ReviewCollection(config.reviewData['_1'])
+        collection: new Entities.ReviewCollection(config.reviewData._1)
       })
     },
     initialize: function(options) {
@@ -47,7 +47,7 @@ function(config, Entities, Views) {
       this.reviewModel.set(key, value);
     },
     onReviewSubmit: function() {
-      this.reviewModel.set(config.reviewData['_2']);
+      this.reviewModel.set(config.reviewData._2);
       this.views.reviews.collection.add(this.reviewModel);
       this.views.modal.hide();
     }
