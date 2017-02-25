@@ -1,16 +1,16 @@
 require.config({
 	baseUrl: 'app',
     paths: {
+    'backbone': './scripts/lib/backbone/backbone',
+    'backbone.babysitter': './scripts/lib/backbone.babysitter/backbone.babysitter',
+    'backbone.wreqr': './scripts/lib/backbone.wreqr/backbone.wreqr',
+    'bootstrap': './scripts/lib/components-bootstrap/bootstrap',
+    'handlebars': './scripts/lib/handlebars/handlebars',
+    'jquery': './scripts/lib/jquery/jquery',
+    'marionette': './scripts/lib/marionette/backbone.marionette',
+    'underscore': './scripts/lib/lodash/lodash.compat',
 		'App': './scripts/app',
-		'templates': '../build/templates',
-		'jquery': '../bower_components/jquery/dist/jquery',
-		'backbone': '../bower_components/backbone/backbone',
-		'underscore': '../bower_components/lodash/dist/lodash',
-		'marionette': '../bower_components/marionette/lib/core/backbone.marionette',
-		'backbone.babysitter': '../bower_components/backbone.babysitter/lib/backbone.babysitter',
-		'backbone.wreqr': '../bower_components/backbone.wreqr/lib/backbone.wreqr',
-		'bootstrap': '../bower_components/components-bootstrap/js/bootstrap',
-		'handlebars': '../bower_components/handlebars/handlebars'
+    'templates': '../app/templates.prod'
 	},
 	shim : {
 		jquery : {
