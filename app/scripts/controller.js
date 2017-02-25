@@ -1,22 +1,18 @@
 define([
   'scripts/config',
-  'scripts/entities/reviewCollection',
-  'scripts/entities/reviewModel',
+  'scripts/entities',
   'scripts/router',
-  'scripts/views/layoutView',
-  'scripts/views/modalView',
-  'scripts/views/reviewModalView',
-  'scripts/views/reviewsView'
+  'scripts/views'
 ],
-function(config, ReviewCollection, ReviewModel, Router, LayoutView, ModalView, ReviewModalView, ReviewsView) {
+function(config, Entities, Router, Views) {
 
   console.log('controller');
 
   var ReviewController = Marionette.Controller.extend({
     views: {
-      layout: new LayoutView(),
-      reviews: new ReviewsView({
-        collection: new ReviewCollection(config.reviewData['_1'])
+      layout: new Views.Layout(),
+      reviews: new Views.Reviews({
+        collection: new Entities.ReviewCollection(config.reviewData['_1'])
       })
     },
     router: new Router(),
@@ -32,11 +28,11 @@ function(config, ReviewCollection, ReviewModel, Router, LayoutView, ModalView, R
       this.views.layout.collectionRegion.show(this.views.reviews);
     },
     onBeforeShowModal: function() {
-      this.reviewModel = new ReviewModel();
-      var reviewModalBody = new ReviewModalView.Body({
+      this.reviewModel = new Entities.ReviewModel();
+      var reviewModalBody = new Views.ReviewModalBody({
         model: this.reviewModel
       });
-      var reviewModalFooter = new ReviewModalView.Footer({
+      var reviewModalFooter = new Views.ReviewModalFooter({
         model: this.reviewModel
       });
       this.listenTo(reviewModalBody, config.events.editReview, this.onReviewEdit);
@@ -45,7 +41,7 @@ function(config, ReviewCollection, ReviewModel, Router, LayoutView, ModalView, R
       this.views.modal.footerRegion.show(reviewModalFooter);
     },
     onReviewCreate: function() {
-      this.views.modal = new ModalView();
+      this.views.modal = new Views.Modal();
       this.listenTo(this.views.modal, 'before:show', this.onBeforeShowModal);
       this.modalRegion.show(this.views.modal);
     },
