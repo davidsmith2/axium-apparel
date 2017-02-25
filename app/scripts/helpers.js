@@ -4,7 +4,7 @@ function() {
   var meta = {
     path: 'app/img/',
     extension: '.png',
-    className: 'js-star',
+    className: 'js-edit-review-star',
     names: {
       on: 'star-on',
       off: 'star'

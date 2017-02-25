@@ -9,8 +9,11 @@ function(config) {
     regions: {
       collectionRegion: '#product__reviews--collection'
     },
+    ui: {
+      createReview: '.js-create-review'
+    },
     triggers: {
-      'click .js-create-review': 'review:create'
+      'click @ui.createReview': config.events.createReview
     }
   });
 
@@ -38,24 +41,24 @@ function(config) {
   var ReviewModalBodyView = Marionette.ItemView.extend({
     template: config.templates.reviewModalBody,
     ui: {
-      input: '.js-input',
-      star: '.js-star'
+      editReviewText: '.js-edit-review-text',
+      editReviewStar: '.js-edit-review-star'
     },
     events: {
-      'keyup @ui.input': 'onInputKeyup',
-      'click @ui.star': 'onStarClick'
+      'keyup @ui.editReviewText': 'onTextEdit',
+      'click @ui.editReviewStar': 'onStarEdit'
     },
     modelEvents: {
-      'change:star_rating': 'onStarRatingChange'
+      'change:star_rating': 'onStarEdited'
     },
-    onInputKeyup: function(e) {
-      this.trigger('review:edit', e.target.name, e.target.value);
+    onTextEdit: function(e) {
+      this.trigger(config.events.editReview, e.target.name, e.target.value);
     },
-    onStarClick: function(e) {
-      this.trigger('review:edit', 'star_rating', $(e.target).index() + 1);
+    onStarEdit: function(e) {
+      this.trigger(config.events.editReview, 'star_rating', $(e.target).index() + 1);
     },
-    onStarRatingChange: function() {
-      Handlebars.helpers.reRenderStars(this.ui.star, this.model.get('star_rating'));
+    onStarEdited: function() {
+      Handlebars.helpers.reRenderStars(this.ui.editReviewStar, this.model.get('star_rating'));
     }
   });
 
@@ -65,7 +68,7 @@ function(config) {
       btn: '.js-submit-review'
     },
     triggers: {
-      'click @ui.btn': 'review:submit'
+      'click @ui.btn': config.events.submitReview
     }
   });
 
