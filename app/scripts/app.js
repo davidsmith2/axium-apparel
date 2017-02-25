@@ -1,6 +1,6 @@
 define([
-  'functions',
-  'helpers',
+  'scripts/functions',
+  'scripts/helpers'
 ],
 function(functions) {
   console.log('app');

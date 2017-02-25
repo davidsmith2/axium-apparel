@@ -1,8 +1,7 @@
-require.config({ 
+require.config({
 	baseUrl: "app",
     paths: {
-		'helpers': 'helpers',
-		'app': 'app',
+		'app': './scripts/app',
 		'templates': '../build/templates',
 		'jquery': '../bower_components/jquery/dist/jquery',
 		'backbone': '../bower_components/backbone/backbone',

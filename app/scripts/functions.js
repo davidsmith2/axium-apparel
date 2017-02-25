@@ -5,7 +5,7 @@ define([
   'scripts/views/modalView',
   'scripts/views/reviewModalView',
   'scripts/views/reviewsView',
-  'router'
+  'scripts/router'
 ],
 function(reviewCollection, ReviewModel, LayoutView, ModalView, ReviewModalView, ReviewsView, Router) {
 

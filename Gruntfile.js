@@ -29,8 +29,7 @@ module.exports = function(grunt) {
         jshint: {
             all: [
                 'Gruntfile.js',
-                'app/**/*.js',
-                'app/modules/**/*.js',
+                'app/**/*.js'
             ]
         },                 
 		requirejs: {
@@ -64,7 +63,7 @@ module.exports = function(grunt) {
         },
         jasmine: {
             all:{
-                src : 'app/modules/{,*/}*.js',
+                src : 'app/scripts/{,*/}*.js',
                 options: {
                     keepRunner: true,
                     specs : 'test/**/*.js',
@@ -75,7 +74,8 @@ module.exports = function(grunt) {
                         'bower_components/marionette/lib/core/backbone.marionette.js',
                         'bower_components/backbone.babysitter/lib/backbone.babysitter.js',
                         'bower_components/backbone.wreqr/lib/backbone.wreqr.js',
-                        'bower_components/bootstrap/dist/js/bootstrap.js',      
+                        'bower_components/bootstrap/dist/js/bootstrap.js',
+                        'bower_components/almond/almond.js'
                     ]
                 }
             }
@@ -131,7 +131,7 @@ module.exports = function(grunt) {
         'less',
         'requirejs',
         'cssmin',
-        'jasmine',
+        'jasmine'
     ]);
 
     grunt.registerTask('develop', ['build', 'fileblocks:develop', 'watch']);
