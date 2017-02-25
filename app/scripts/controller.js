@@ -8,90 +8,57 @@ define([
   'scripts/views/reviewModalView',
   'scripts/views/reviewsView'
 ],
-function(config, reviewCollection, ReviewModel, Router, LayoutView, ModalView, ReviewModalView, ReviewsView) {
+function(config, ReviewCollection, ReviewModel, Router, LayoutView, ModalView, ReviewModalView, ReviewsView) {
 
-  console.log('functions');
+  console.log('controller');
 
-  /**
-   * @private
-   * @param modalView
-   */
-  var onReviewSubmit = function(modalView) {
-    this.model.set(config.reviewData['_2']);
-    reviewCollection.add(this.model);
-    modalView.hide();
-  };
+  var ReviewController = Marionette.Controller.extend({
+    views: {
+      layout: new LayoutView(),
+      reviews: new ReviewsView({
+        collection: new ReviewCollection(config.reviewData['_1'])
+      })
+    },
+    router: new Router(),
+    initialize: function(options) {
+      this.modalRegion = options.modalRegion;
+    },
+    renderLayout: function() {
+      this.listenTo(this.views.layout, 'render', this.onLayoutRender);
+      this.listenTo(this.views.layout, config.events.createReview, this.onReviewCreate);
+      this.views.layout.render();
+    },
+    onLayoutRender: function() {
+      this.views.layout.collectionRegion.show(this.views.reviews);
+    },
+    onBeforeShowModal: function() {
+      this.reviewModel = new ReviewModel();
+      var reviewModalBody = new ReviewModalView.Body({
+        model: this.reviewModel
+      });
+      var reviewModalFooter = new ReviewModalView.Footer({
+        model: this.reviewModel
+      });
+      this.listenTo(reviewModalBody, config.events.editReview, this.onReviewEdit);
+      this.listenTo(reviewModalFooter, config.events.submitReview, this.onReviewSubmit);
+      this.views.modal.bodyRegion.show(reviewModalBody);
+      this.views.modal.footerRegion.show(reviewModalFooter);
+    },
+    onReviewCreate: function() {
+      this.views.modal = new ModalView();
+      this.listenTo(this.views.modal, 'before:show', this.onBeforeShowModal);
+      this.modalRegion.show(this.views.modal);
+    },
+    onReviewEdit: function(key, value) {
+      this.reviewModel.set(key, value);
+    },
+    onReviewSubmit: function() {
+      this.reviewModel.set(config.reviewData['_2']);
+      this.views.reviews.collection.add(this.reviewModel);
+      this.views.modal.hide();
+    }
+  });
 
-  /**
-   * @private
-   * @param key
-   * @param value
-   */
-  var onReviewEdit = function(key, value) {
-    this.model.set(key, value);
-  };
-
-  /**
-   * @public
-   * @param modalView
-   */
-  var onBeforeShowModal = function(modalView) {
-    var reviewModel = new ReviewModel();
-    var reviewModalBodyView = new ReviewModalView.Body({
-      model: reviewModel
-    });
-    var reviewModalFooterView = new ReviewModalView.Footer({
-      model: reviewModel
-    });
-    reviewModalBodyView.on('review:edit', onReviewEdit);
-    reviewModalFooterView.on('review:submit', _.partial(onReviewSubmit, modalView));
-    this.bodyRegion.show(reviewModalBodyView);
-    this.footerRegion.show(reviewModalFooterView);
-  };
-
-  /**
-   * @public
-   * @param modalRegion
-   */
-  var onCreateReview = function(modalRegion) {
-    var modalView = new ModalView();
-    modalView.on('before:show', _.partial(onBeforeShowModal, modalView));
-    modalRegion.show(modalView);
-  };
-
-  /**
-   * @public
-   */
-  var onRenderLayout = function() {
-    this.collectionRegion.show(new ReviewsView({
-      collection: reviewCollection
-    }));
-  };
-
-  /**
-   * @public
-   */
-  var onStartApp = function() {
-    var layoutView = new LayoutView();
-    layoutView.on('render', onRenderLayout);
-    layoutView.on('review:create', _.partial(onCreateReview, this.modalRegion));
-    layoutView.render();
-  };
-
-  /**
-   * @public
-   */
-  var onBeforeStartApp = function() {
-    var router = new Router();
-    Backbone.history.start({pushState: true});
-  };
-
-  return {
-    onBeforeStartApp: onBeforeStartApp,
-    onStartApp: onStartApp,
-    onRenderLayout: onRenderLayout,
-    onCreateReview: onCreateReview,
-    onBeforeShowModal: onBeforeShowModal
-  };
+  return ReviewController;
 
 });

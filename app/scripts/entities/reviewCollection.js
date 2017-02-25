@@ -1,10 +1,9 @@
 define([
-  'scripts/config',
   'scripts/entities/reviewModel'
 ],
-function(config, ReviewModel) {
+function(ReviewModel) {
   var ReviewCollection = Backbone.Collection.extend({
     model: ReviewModel
   });
-  return new ReviewCollection(config.reviewData['_1']);
+  return ReviewCollection;
 });

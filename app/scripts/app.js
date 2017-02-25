@@ -2,13 +2,22 @@ define([
   'scripts/controller',
   'scripts/helpers'
 ],
-function(controller) {
+function(Controller) {
   console.log('app');
-	var app = new Marionette.Application();
+  var onBeforeStartApp = function() {
+    Backbone.history.start({pushState: true});
+  };
+  var onStartApp = function() {
+    var controller = new Controller({
+      modalRegion: this.modalRegion
+    });
+    controller.renderLayout();
+  };
+  var app = new Marionette.Application();
   app.addRegions({
     modalRegion: '#modal-region'
   });
-  app.on('before:start', controller.onBeforeStartApp);
-	app.on('start', controller.onStartApp);
+  app.on('before:start', onBeforeStartApp);
+	app.on('start', onStartApp);
 	return app;
 });

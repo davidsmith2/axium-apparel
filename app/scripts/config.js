@@ -2,6 +2,11 @@ define([
 ],
 function() {
   return {
+    events: {
+      createReview: 'review:create',
+      editReview: 'review:edit',
+      submitReview: 'review:submit'
+    },
     templates: {
       layout: 'app/templates/layout.hbs',
       modal: 'app/templates/modal.hbs',
