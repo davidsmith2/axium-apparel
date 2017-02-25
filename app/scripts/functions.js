@@ -11,34 +11,49 @@ function(reviewCollection, ReviewModel, Router, LayoutView, ModalView, ReviewMod
 
   console.log('functions');
 
+  var onInputKeyup = function(target) {
+    this.model.set(target.name, target.value);
+  };
+
+  var onStarClick = function(starNum, stars) {
+    _.each(stars, function(star, index) {
+      var imgName = (starNum < index) ? 'star' : 'star-on';
+      $(star).attr('src', 'app/img/' + imgName + '.png');
+    });
+    this.model.set('star_rating', ++starNum);
+  };
+
   var renderStars = function(stars) {
     var str = '';
     for (var i = 0; i < stars; i++) {
-      str += '<img src="app/img/star.png">';
+      str += '<img class="js-star" src="app/img/star.png">';
     }
     return str;
   };
 
-  var onReviewSubmit = function(reviewModalBodyView, modalView) {
-    var staticData = {
+  var onReviewSubmit = function(modalView) {
+    this.model.set({
       user: {
         name: 'David Smith',
         avatar: 'reviewer-placeholder.png'
       },
       date: new Date()
-    };
-    var dynamicData = reviewModalBodyView.model.attributes;
-    var reviewModel = new ReviewModel(_.extend({}, staticData, dynamicData));
-    reviewCollection.add(reviewModel);
+    });
+    reviewCollection.add(this.model);
     modalView.hide();
   };
 
   var onBeforeShowModal = function(modalView) {
+    var reviewModel = new ReviewModel();
     var reviewModalBodyView = new ReviewModalView.Body({
-      model: new ReviewModel()
+      model: reviewModel
     });
-    var reviewModalFooterView = new ReviewModalView.Footer();
-    reviewModalFooterView.on('review:submit', _.partial(onReviewSubmit, reviewModalBodyView, modalView));
+    var reviewModalFooterView = new ReviewModalView.Footer({
+      model: reviewModel
+    });
+    reviewModalBodyView.on('input:keyup', onInputKeyup);
+    reviewModalBodyView.on('star:click', onStarClick);
+    reviewModalFooterView.on('review:submit', _.partial(onReviewSubmit, modalView));
     this.bodyRegion.show(reviewModalBodyView);
     this.footerRegion.show(reviewModalFooterView);
   };

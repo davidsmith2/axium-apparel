@@ -6,32 +6,27 @@ function() {
     template: "app/templates/reviewModalBody.hbs",
     ui: {
       input: '.js-input',
-      star: 'img'
+      star: '.js-star'
     },
     events: {
       'keyup @ui.input': 'onInputKeyup',
       'click @ui.star': 'onStarClick'
     },
     onInputKeyup: function(e) {
-      this.updateModel(e.target.name, e.target.value);
+      this.trigger('input:keyup', e.target);
     },
     onStarClick: function(e) {
-      var starNum = $(e.target).index();
-      _.each(this.ui.star, function(star, index) {
-        var imgName = (starNum < index) ? 'star' : 'star-on';
-        $(star).attr('src', 'app/img/' + imgName + '.png');
-      });
-      this.updateModel('star_rating', ++starNum);
-    },
-    updateModel: function(key, value) {
-      this.model.set(key, value);
+      this.trigger('star:click', $(e.target).index(), this.ui.star);
     }
   });
 
   var Footer = Marionette.ItemView.extend({
     template: "app/templates/reviewModalFooter.hbs",
+    ui: {
+      btn: '.js-submit-review'
+    },
     triggers: {
-      'click .js-submit-review': 'review:submit'
+      'click @ui.btn': 'review:submit'
     }
   });
 
