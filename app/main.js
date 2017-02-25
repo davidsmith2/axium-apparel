@@ -2,7 +2,6 @@ require.config({
 	baseUrl: "app",
     paths: {
 		'helpers': 'helpers',
-		'router': 'router',
 		'app': 'app',
 		'templates': '../build/templates',
 		'jquery': '../bower_components/jquery/dist/jquery',
@@ -35,12 +34,9 @@ require.config({
 		app : {
 			deps : ['jquery', 'underscore', 'backbone', 'marionette'],
 		},
-		router : {
-			deps : ['app'],
-		},
 		templates : {
 			deps : ['handlebars']}
-		},    
+		}
 });
 
 require([
@@ -49,12 +45,21 @@ require([
 	"underscore",
 	"marionette",
 	"app",
-	"router",
 	"templates",
 	"handlebars",
 	"bootstrap"
 ],
-function(jquery, backbone, underscore, marionette, app, router) {
-	app.router = new router();
-	Backbone.history.start({ pushState: true });
+function(jquery, backbone, underscore, marionette, app) {
+
+	console.log('main');
+
+  JST = window.JST || {};
+
+  marionette.Renderer.render = function(template, data) {
+    if (!JST[template]) throw "Template '" + template + "' not found!";
+    return JST[template](data);
+  };
+
+  app.start({});
+
 });

@@ -1,14 +1,16 @@
 define([
-	'app'
 ],
-function(app) {
+function() {
 
-  var Router = Backbone.Marionette.AppRouter.extend({
+  console.log('router');
+
+  var Router = Marionette.AppRouter.extend({
     routes: {
-      "*actions"                      : "index",
+      "*actions": "index"
     },
-    index : function(){}
+    index : function() {}
   });
   
   return Router;
+
 });
