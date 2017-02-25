@@ -5,17 +5,17 @@ function(Entities) {
 
   Handlebars.registerHelper('renderStars', function(starRating) {
     var ret = '';
-    for (var i = 0; i < starRating; i++) {
+    _.each(new Array(starRating), function() {
       var model = new Entities.StarModel({name: 'off'});
       ret += '<img class="' + model.get('className') + '" src="' + model.get('src') + '">';
-    }
+    });
     return ret;
   });
 
   Handlebars.registerHelper('reRenderStars', function($elements, starRating) {
-    $elements.each(function(index) {
+    _.each($elements, function(element, index) {
       var model = new Entities.StarModel({name: (starRating <= index) ? 'off' : 'on'});
-      $(this).attr('src', model.get('src'));
+      $(element).attr('src', model.get('src'));
     });
   });
 
