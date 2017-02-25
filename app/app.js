@@ -1,29 +1,53 @@
 define([
+  'js/entities/review',
 	'js/entities/reviews',
+  'js/views/layout',
+	'js/views/modal',
+  'js/views/reviewModal',
   'helpers'
 ],
-function(reviews) {
+function(Review, reviews, LayoutView, ModalView, ReviewModalView) {
 
-	var app = {}, Layout = {}, JST = window.JST = window.JST || {};
+	var app = {}, JST = window.JST = window.JST || {};
 
-	app = new Backbone.Marionette.Application();
+	app = new Marionette.Application();
+
+	app.addRegions({
+    modalRegion: '#modal-region'
+	});
 	
-	Backbone.Marionette.Renderer.render = function(template, data){
+	Marionette.Renderer.render = function(template, data){
 		if (!JST[template]) throw "Template '" + template + "' not found!";
 		return JST[template](data);
 	};
-	
-	Layout = Backbone.Marionette.LayoutView.extend({
-		el : '#product__reviews',
-		template: "app/templates/layout.hbs",
-		regions: {
-			collectionRegion: '#product__reviews--collection'
-		}
+
+	var layoutView = new LayoutView();
+
+	layoutView.on('review:create', function() {
+    var modalView = new ModalView();
+		modalView.on('before:show', function() {
+      var reviewModalBodyView = new ReviewModalView.Body();
+      var reviewModalFooterView = new ReviewModalView.Footer();
+      reviewModalFooterView.on('review:submit', function(e) {
+        var review = new Review({
+          user: {
+            name: 'David Smith',
+            avatar: 'reviewer-placeholder.png'
+          },
+          title: 'title',
+          description: 'description',
+          star_rating: 1,
+          date: new Date()
+        });
+        reviews.add(review);
+			});
+      this.bodyRegion.show(reviewModalBodyView);
+      this.footerRegion.show(reviewModalFooterView);
+		});
+		app.modalRegion.show(modalView);
 	});
 
-	layout = new Layout();
-
-	layout.on('render', function() {
+	layoutView.on('render', function() {
 		this.collectionRegion.show(new Marionette.CollectionView({
       collection: reviews,
       className: "col-sm-12",
@@ -34,7 +58,8 @@ function(reviews) {
     }));
 	});
 	
-	layout.render();
+	layoutView.render();
 	
 	return app;
+
 });
