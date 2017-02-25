@@ -14,29 +14,21 @@ function(config, reviewCollection, ReviewModel, Router, LayoutView, ModalView, R
 
   /**
    * @private
-   * @param starNum
-   * @param stars
-   */
-  var onStarClick = function(starNum) {
-    this.model.set('star_rating', ++starNum);
-  };
-
-  /**
-   * @private
-   * @param target
-   */
-  var onInputKeyup = function(target) {
-    this.model.set(target.name, target.value);
-  };
-
-  /**
-   * @private
    * @param modalView
    */
   var onReviewSubmit = function(modalView) {
     this.model.set(config.reviewData['_2']);
     reviewCollection.add(this.model);
     modalView.hide();
+  };
+
+  /**
+   * @private
+   * @param key
+   * @param value
+   */
+  var onReviewEdit = function(key, value) {
+    this.model.set(key, value);
   };
 
   /**
@@ -51,8 +43,7 @@ function(config, reviewCollection, ReviewModel, Router, LayoutView, ModalView, R
     var reviewModalFooterView = new ReviewModalView.Footer({
       model: reviewModel
     });
-    reviewModalBodyView.on('input:keyup', onInputKeyup);
-    reviewModalBodyView.on('star:click', onStarClick);
+    reviewModalBodyView.on('review:edit', onReviewEdit);
     reviewModalFooterView.on('review:submit', _.partial(onReviewSubmit, modalView));
     this.bodyRegion.show(reviewModalBodyView);
     this.footerRegion.show(reviewModalFooterView);
@@ -82,8 +73,8 @@ function(config, reviewCollection, ReviewModel, Router, LayoutView, ModalView, R
    */
   var onStartApp = function() {
     var layoutView = new LayoutView();
-    layoutView.on('review:create', _.partial(onCreateReview, this.modalRegion));
     layoutView.on('render', onRenderLayout);
+    layoutView.on('review:create', _.partial(onCreateReview, this.modalRegion));
     layoutView.render();
   };
 

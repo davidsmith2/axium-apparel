@@ -14,15 +14,15 @@ function(config) {
       'click @ui.star': 'onStarClick'
     },
     modelEvents: {
-      'change:star_rating': 'reRenderStars'
+      'change:star_rating': 'onStarRatingChange'
     },
     onInputKeyup: function(e) {
-      this.trigger('input:keyup', e.target);
+      this.trigger('review:edit', e.target.name, e.target.value);
     },
     onStarClick: function(e) {
-      this.trigger('star:click', $(e.target).index(), this.ui.star);
+      this.trigger('review:edit', 'star_rating', $(e.target).index() + 1);
     },
-    reRenderStars: function() {
+    onStarRatingChange: function() {
       Handlebars.helpers.reRenderStars(this.ui.star, this.model.get('star_rating'));
     }
   });
