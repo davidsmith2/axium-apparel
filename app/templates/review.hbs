@@ -1,0 +1,20 @@
+<div class="col-sm-2">
+    <div class="centered-image">
+        <img src="app/img/{{user.avatar}}">
+        <span>{{user.name}}</span>
+    </div>
+</div>
+<div class="col-sm-10">
+    <div class="clearfix">
+        <div class="pull-left margin-right-1">
+            <h3 class="margin-top-0">{{title}}</h3>
+        </div>
+        <div class="pull-left margin-right-1">
+            {{date}}
+        </div>
+        <div class="pull-left">
+            {{#starHelper star_rating}}{{/starHelper}}
+        </div>
+    </div>
+    <p>{{description}}</p>
+</div>

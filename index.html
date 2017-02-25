@@ -94,9 +94,9 @@
                 </ul>
             </nav>
             <main role="main" id="main">
-                <div class="product__order-form row">
+                <div class="row" id="product__order-form">
                     <div class="col-sm-6">
-                        <img class="product__image" src="app/img/tough-mojo-jacket-img1.png">
+                        <img class="centered-image" src="app/img/tough-mojo-jacket-img1.png">
                     </div>
                     <div class="col-sm-5">
                         <div>
@@ -107,8 +107,8 @@
                                 tktktk tktktk tktktk tktktk tktktk tktktk tktktk tktktk tktktk tktktk tktktk tktktk tktktk tktktk tktktk tktktk tktktk tktktk
                                 tktktk tktktk tktktk tktktk tktktk tktktk tktktk tktktk tktktk tktktk tktktk tktktk tktktk tktktk tktktk tktktk tktktk tktktk
                             </p>
-                            <form>
-                                <div>
+                            <form class="row">
+                                <div class="col-sm-12">
                                     <div class="form-group pull-left">
                                         <label class="sr-only" for="product-size">
                                             Select Size
@@ -133,7 +133,7 @@
                                         </select>
                                     </div>
                                 </div>
-                                <div>
+                                <div class="col-sm-12">
                                     <div class="input-group pull-left">
                                         <label class="sr-only" for="product-qty">
                                             Select Quantity
@@ -149,16 +149,16 @@
                                         </button>
                                     </div>
                                     <div class="form-group pull-right">
-                                        <input class="input-sm" type="submit" value="Add To Cart">
+                                        <input class="btn btn-sm input-sm" type="submit" value="Add To Cart">
                                     </div>
                                 </div>
                             </form>
                         </div>
                     </div>
                 </div>
-                <div class="product__description row">
+                <div class="row" id="product__description">
                     <div class="col-sm-6">
-                        <img class="product__image" src="app/img/tough-mojo-jacket-img2.png">
+                        <img class="centered-image" src="app/img/tough-mojo-jacket-img2.png">
                     </div>
                     <div class="col-sm-5">
                         <p>
@@ -170,14 +170,12 @@
                         </p>
                     </div>
                 </div>
-                <div class="product__reviews row">
-                    Reviews
-                    <div id="product__reviews-app"></div>
+                <div class="row" id="product__reviews">
                 </div>
             </main>
             <footer class="row">
                 <div class="footer__logo col-sm-2">
-                    <img src="app/img/axiom-logo-small.png">
+                    <img src="app/img/axiom-logo-small.png" width="120">
                 </div>
                 <div class="footer__links col-sm-7 col-sm-offset-1">
                     <ul class="list-inline pull-right">
@@ -199,7 +197,7 @@
                     </ul>
                 </div>
             </footer>
-        </div>           
+        </div>
         <!-- fileblock:js app -->
         <script data-main="app/main" src="bower_components/requirejs/require.js"></script>
         <!-- endfileblock -->
