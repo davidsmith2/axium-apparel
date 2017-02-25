@@ -5,11 +5,24 @@ function() {
 
   var Body = Marionette.ItemView.extend({
     template: "app/templates/reviewModalBody.hbs",
-    events: {
-      'keyup .js-input': 'onKeyup'
+    ui: {
+      input: '.js-input',
+      star: 'img'
     },
-    onKeyup: function(e) {
+    events: {
+      'keyup @ui.input': 'onInputKeyup',
+      'click @ui.star': 'onStarClick'
+    },
+    onInputKeyup: function(e) {
       this.model.set(e.target.name, e.target.value);
+    },
+    onStarClick: function(e) {
+      var starNum = $(e.target).index();
+      _.each(this.ui.star, function(star, index) {
+        var imgName = (starNum < index) ? 'star' : 'star-on';
+        $(star).attr('src', 'app/img/' + imgName + '.png');
+      });
+      this.model.set('star_rating', ++starNum);
     }
   });
 
