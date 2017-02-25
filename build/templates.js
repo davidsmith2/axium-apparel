@@ -102,7 +102,7 @@ function program1(depth0,data) {
   if (stack2 = helpers.description) { stack2 = stack2.call(depth0, {hash:{},data:data}); }
   else { stack2 = (depth0 && depth0.description); stack2 = typeof stack2 === functionType ? stack2.call(depth0, {hash:{},data:data}) : stack2; }
   buffer += escapeExpression(stack2)
-    + "\"\n        >\n        </textarea>\n    </div>\n</form>";
+    + "\"\n        ></textarea>\n    </div>\n</form>";
   return buffer;
   });
 

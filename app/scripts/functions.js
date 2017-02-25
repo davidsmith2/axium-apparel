@@ -1,15 +1,23 @@
 define([
   'scripts/entities/reviewCollection',
   'scripts/entities/reviewModel',
+  'scripts/router',
   'scripts/views/layoutView',
   'scripts/views/modalView',
   'scripts/views/reviewModalView',
-  'scripts/views/reviewsView',
-  'scripts/router'
+  'scripts/views/reviewsView'
 ],
-function(reviewCollection, ReviewModel, LayoutView, ModalView, ReviewModalView, ReviewsView, Router) {
+function(reviewCollection, ReviewModel, Router, LayoutView, ModalView, ReviewModalView, ReviewsView) {
 
   console.log('functions');
+
+  var renderStars = function(stars) {
+    var str = '';
+    for (var i = 0; i < stars; i++) {
+      str += '<img src="app/img/star.png">';
+    }
+    return str;
+  };
 
   var onReviewSubmit = function(reviewModalBodyView, modalView) {
     var staticData = {
@@ -65,7 +73,8 @@ function(reviewCollection, ReviewModel, LayoutView, ModalView, ReviewModalView, 
     onCreateReview: onCreateReview,
     onRenderLayout: onRenderLayout,
     onBeforeStartApp: onBeforeStartApp,
-    onStartApp: onStartApp
+    onStartApp: onStartApp,
+    renderStars: renderStars
   };
 
 });

@@ -1,5 +1,4 @@
 define([
-
 ],
 function() {
 
@@ -14,7 +13,7 @@ function() {
       'click @ui.star': 'onStarClick'
     },
     onInputKeyup: function(e) {
-      this.model.set(e.target.name, e.target.value);
+      this.updateModel(e.target.name, e.target.value);
     },
     onStarClick: function(e) {
       var starNum = $(e.target).index();
@@ -22,7 +21,10 @@ function() {
         var imgName = (starNum < index) ? 'star' : 'star-on';
         $(star).attr('src', 'app/img/' + imgName + '.png');
       });
-      this.model.set('star_rating', ++starNum);
+      this.updateModel('star_rating', ++starNum);
+    },
+    updateModel: function(key, value) {
+      this.model.set(key, value);
     }
   });
 
