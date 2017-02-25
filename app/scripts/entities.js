@@ -10,9 +10,28 @@ function() {
     model: ReviewModel
   });
 
+  var StarModel = Backbone.Model.extend({
+    names: {
+      on: 'star-on',
+      off: 'star'
+    },
+    defaults: {
+      path: 'app/img/',
+      extension: '.png',
+      className: 'js-edit-review-star'
+    },
+    initialize: function(options) {
+      this.set('src', this.getSrc(options.name));
+    },
+    getSrc: function(name) {
+      return this.get('path') + this.names[name] + this.get('extension');
+    }
+  });
+
   return {
+    ReviewCollection: ReviewCollection,
     ReviewModel: ReviewModel,
-    ReviewCollection: ReviewCollection
+    StarModel: StarModel
   };
 
 });
