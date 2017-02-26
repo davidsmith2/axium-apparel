@@ -1,5 +1,5 @@
 define([
-  'scripts/config'
+  'config'
 ],
 function(config) {
 

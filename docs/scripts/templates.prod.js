@@ -55,7 +55,7 @@ function program1(depth0,data) {
   return buffer;
   }
 
-  buffer += "<div class=\"col-sm-2\">\n    <div class=\"centered-image\">\n        <img src=\"app/img/"
+  buffer += "<div class=\"col-sm-2\">\n    <div class=\"centered-image\">\n        <img src=\"img/"
     + escapeExpression(((stack1 = ((stack1 = (depth0 && depth0.user)),stack1 == null || stack1 === false ? stack1 : stack1.avatar)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
     + "\">\n        <span>"
     + escapeExpression(((stack1 = ((stack1 = (depth0 && depth0.user)),stack1 == null || stack1 === false ? stack1 : stack1.name)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))

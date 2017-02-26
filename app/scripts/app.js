@@ -1,7 +1,7 @@
 define([
-  'scripts/controller',
-  'scripts/router',
-  'scripts/helpers'
+  'controller',
+  'router',
+  'helpers'
 ],
 function(Controller, Router) {
 

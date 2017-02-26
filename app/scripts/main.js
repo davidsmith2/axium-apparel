@@ -1,16 +1,16 @@
 require.config({
-	baseUrl: 'app',
+	baseUrl: 'scripts',
     paths: {
-    'backbone': './scripts/lib/backbone/backbone',
-    'backbone.babysitter': './scripts/lib/backbone.babysitter/backbone.babysitter',
-    'backbone.wreqr': './scripts/lib/backbone.wreqr/backbone.wreqr',
-    'bootstrap': './scripts/lib/components-bootstrap/bootstrap',
-    'handlebars': './scripts/lib/handlebars/handlebars',
-    'jquery': './scripts/lib/jquery/jquery',
-    'marionette': './scripts/lib/marionette/backbone.marionette',
-    'underscore': './scripts/lib/lodash/lodash.compat',
-		'App': './scripts/app',
-    'templates': '../app/templates.prod'
+    'backbone': './lib/backbone/backbone',
+    'backbone.babysitter': './lib/backbone.babysitter/backbone.babysitter',
+    'backbone.wreqr': './lib/backbone.wreqr/backbone.wreqr',
+    'bootstrap': './lib/components-bootstrap/bootstrap',
+    'handlebars': './lib/handlebars/handlebars',
+    'jquery': './lib/jquery/jquery',
+    'marionette': './lib/marionette/backbone.marionette',
+    'underscore': './lib/lodash/lodash.compat',
+		'App': './app',
+    'templates': '../../.tmp/scripts/templates.prod'
 	},
 	shim : {
 		jquery : {

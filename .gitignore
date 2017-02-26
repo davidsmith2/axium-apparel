@@ -1,4 +1,4 @@
 .idea
-app/*.prod.js
+.tmp
 bower_components
 node_modules

@@ -4,29 +4,29 @@ module.exports = function(grunt) {
       deployImages: {
         cwd: 'app/img',
         src: '**',
-        dest: 'docs/app/img/',
+        dest: 'docs/img/',
         expand: true
       },
       deployScripts: {
-        cwd: 'app',
+        cwd: '.tmp/scripts',
         src: '*.prod.js',
-        dest: 'docs/app/',
+        dest: 'docs/scripts/',
         expand: true
       },
       deployStyles: {
         cwd: 'app/styles',
         src: '**/*.css',
-        dest: 'docs/app/styles/',
+        dest: 'docs/styles/',
         expand: true
       },
       deployFonts: {
         cwd: 'app/styles/fonts',
         src: '**',
-        dest: 'docs/app/styles/fonts/',
+        dest: 'docs/styles/fonts/',
         expand: true
       },
       deployHtml: {
-        cwd: '.',
+        cwd: 'app',
         src: 'index.html',
         dest: 'docs/',
         expand: true
@@ -68,11 +68,11 @@ module.exports = function(grunt) {
     requirejs: {
       compile: {
         options: {
-          baseUrl: "app",
-          mainConfigFile: "app/main.js",
+          baseUrl: "app/scripts",
+          mainConfigFile: "app/scripts/main.js",
           include: "main",
-          name: "scripts/lib/almond/almond",
-          out: "app/main.prod.js"
+          name: "lib/almond/almond",
+          out: ".tmp/scripts/main.prod.js"
         }
       }
     },
@@ -90,7 +90,7 @@ module.exports = function(grunt) {
           namespace: 'JST'
         },
         files: {
-          'app/templates.prod.js': ['app/templates/**/*.hbs']
+          '.tmp/scripts/templates.prod.js': ['app/templates/**/*.hbs']
         }
       }
     },
@@ -126,20 +126,20 @@ module.exports = function(grunt) {
     fileblocks: {
       options: {
         templates: {
-          'js': '<script data-main="app/main" src="${file}"></script>',
+          'js': '<script data-main="scripts/main" src="${file}"></script>',
         },
         removeFiles : true
       },
       prod: {
         src: 'docs/index.html',
         blocks: {
-          'app': { src: 'app/main.prod.js' }
+          'app': { src: 'scripts/main.prod.js', cwd: 'docs' }
         }
       },
       develop: {
-        src: 'index.html',
+        src: 'app/index.html',
         blocks: {
-          'app': { src: 'app/scripts/lib/requirejs/require.js' }
+          'app': { src: 'scripts/lib/requirejs/require.js', cwd: 'app' }
         }
       },
     },

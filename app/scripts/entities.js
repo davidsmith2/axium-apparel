@@ -16,7 +16,7 @@ function() {
       off: 'star'
     },
     defaults: {
-      path: 'app/img/',
+      path: 'img/',
       extension: '.png',
       className: 'js-edit-review-star'
     },

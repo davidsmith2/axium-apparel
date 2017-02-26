@@ -1,7 +1,7 @@
 define([
-  'scripts/config',
-  'scripts/entities',
-  'scripts/views'
+  'config',
+  'entities',
+  'views'
 ],
 function(config, Entities, Views) {
 

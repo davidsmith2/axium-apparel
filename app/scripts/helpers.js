@@ -1,5 +1,5 @@
 define([
-  'scripts/entities'
+  'entities'
 ],
 function(Entities) {
 
