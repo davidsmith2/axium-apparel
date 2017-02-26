@@ -2,9 +2,9 @@ module.exports = function(grunt) {
   grunt.initConfig({
     copy: {
       deployImages: {
-        cwd: 'app/img',
+        cwd: 'app/images',
         src: '**',
-        dest: 'docs/img/',
+        dest: 'docs/images/',
         expand: true
       },
       deployScripts: {
