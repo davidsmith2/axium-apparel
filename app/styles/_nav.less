@@ -1,8 +1,26 @@
 .nav__links {
+  a.dropdown-toggle {
+    color: @green1;
+  }
   li.dropdown {
-    width: 20%;
+    >.dropdown-toggle {
+      background: none;
+    }
+    width: 17.5%;
     >.dropdown-menu {
+      padding: 0;
+      .divider {
+        margin: 0;
+      }
       width: auto;
+      >li {
+        a {
+          &:hover {
+            background-color: @green1;
+            color: white;
+          }
+        }
+      }
     }
   }
 }

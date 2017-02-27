@@ -8,9 +8,11 @@
 @import '_nav';
 @import '_main';
 @import '_footer';
+@import (reference) '_variables';
 @import (reference) '_mixins';
 
 body {
+  background-color: @gray14;
   font-family: 'Raleway', sans-serif;
 }
 
@@ -20,6 +22,10 @@ header {
 
 main {
   color: white;
+}
+
+nav {
+  background-color: white;
 }
 
 footer {

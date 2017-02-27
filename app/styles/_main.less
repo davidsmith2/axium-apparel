@@ -2,7 +2,7 @@
   background: url("../images/topsection-background.png") no-repeat;
   padding: 1em;
   select {
-    background-color: gray;
+    background-color: @green3;
     width: 12em;
   }
   input[type=text] {
@@ -10,21 +10,31 @@
     width: 6em;
   }
   input[type=submit] {
-    background-color: turquoise;
+    background-color: @green1;
     width: 12em;
+    &:hover {
+      color: white;
+    }
   }
   button[type=button] {
-    background-color: gray;
+    background-color: @green3;
     width: 3em;
+    &:hover {
+      color: white;
+    }
   }
 }
 
 #product__description {
-  background-color: #666666;
+  background-color: @gray9;
   padding: 1em;
 }
 
 #product__reviews {
-  background-color: #000066;
+  background-color: @blue1;
   padding: 1em;
+  .js-create-review {
+    .vertically-center;
+    .white;
+  }
 }
