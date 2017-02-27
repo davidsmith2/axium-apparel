@@ -1,21 +1,21 @@
 define([
   'marionette',
-  'controller',
   'router',
   'helpers'
 ],
-function(Marionette, Controller, Router) {
+function(Marionette, Router) {
 
   var App = Marionette.Application.extend({
+    initialize: function(options) {
+      this.controller = options.controller;
+      this.modalRegion = options.modalRegion;
+    },
     onBeforeStart: function() {
       this.router = new Router();
       Backbone.history.start({pushState: true});
     },
     onStart: function() {
-      var controller = new Controller({
-        modalRegion: this.modalRegion
-      });
-      controller.renderLayout();
+      this.controller.renderLayout();
     }
   });
 

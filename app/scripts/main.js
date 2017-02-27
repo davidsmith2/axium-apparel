@@ -1,9 +1,10 @@
 require([
   'marionette',
-	'App',
+  'app',
+  'controller',
   'templates'
 ],
-function(Marionette, App) {
+function(Marionette, App, Controller) {
 
   JST = window.JST || {};
 
@@ -11,11 +12,11 @@ function(Marionette, App) {
     if (!JST[template]) throw "Template " + template + " not found!";
     return JST[template](data);
   };
-  
-  var app = new App();
 
-  app.addRegions({
-    modalRegion: '#modal-region'
+  var app = new App({
+    controller: new Controller({
+      modalRegion: new Marionette.Region({el: '#modal-region'})
+    })
   });
 
   app.start({});
