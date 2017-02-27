@@ -59,7 +59,7 @@ function program1(depth0,data) {
     + escapeExpression(((stack1 = ((stack1 = (depth0 && depth0.user)),stack1 == null || stack1 === false ? stack1 : stack1.avatar)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
     + "\">\n        <span>"
     + escapeExpression(((stack1 = ((stack1 = (depth0 && depth0.user)),stack1 == null || stack1 === false ? stack1 : stack1.name)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
-    + "</span>\n    </div>\n</div>\n<div class=\"col-sm-10\">\n    <div class=\"clearfix\">\n        <div class=\"pull-left margin-right-1\">\n            <h3 class=\"margin-top-0\">";
+    + "</span>\n    </div>\n</div>\n<div class=\"col-sm-8\">\n    <div class=\"clearfix\">\n        <div class=\"pull-left margin-right-1\">\n            <h3 class=\"margin-top-0\">";
   if (stack2 = helpers.title) { stack2 = stack2.call(depth0, {hash:{},data:data}); }
   else { stack2 = (depth0 && depth0.title); stack2 = typeof stack2 === functionType ? stack2.call(depth0, {hash:{},data:data}) : stack2; }
   buffer += escapeExpression(stack2)
