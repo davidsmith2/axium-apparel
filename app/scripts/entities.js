@@ -1,6 +1,7 @@
 define([
+  'backbone'
 ],
-function() {
+function(Backbone) {
 
   var ReviewModel = Backbone.Model.extend({
     defaults: {}

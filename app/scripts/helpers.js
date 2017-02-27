@@ -1,5 +1,6 @@
 define([
-  'entities'
+  'entities',
+  'handlebars'
 ],
 function(Entities) {
 

@@ -1,5 +1,10 @@
 module.exports = function(grunt) {
   grunt.initConfig({
+    connect: {
+      options: {},
+      test: {
+      }
+    },
     copy: {
       deployImages: {
         cwd: 'app/images',
@@ -9,7 +14,7 @@ module.exports = function(grunt) {
       },
       deployScripts: {
         cwd: '.tmp/scripts',
-        src: '*.prod.js',
+        src: '*.js',
         dest: 'docs/scripts/',
         expand: true
       },
@@ -53,6 +58,14 @@ module.exports = function(grunt) {
           'app/styles/{,*/}*.css',
           'app/scripts/{,*/}*.js',
         ]
+      },
+      jasmine: {
+        files: [
+          'test/*.test.js'
+        ],
+        tasks: [
+          'jasmine'
+        ]
       }
     },
     clean: {
@@ -69,10 +82,10 @@ module.exports = function(grunt) {
       compile: {
         options: {
           baseUrl: "app/scripts",
-          mainConfigFile: "app/scripts/main.js",
-          include: "main",
+          mainConfigFile: "app/scripts/require.config.js",
+          include: "require.config",
           name: "lib/almond/almond",
-          out: ".tmp/scripts/main.prod.js"
+          out: ".tmp/scripts/main.js"
         }
       }
     },
@@ -83,33 +96,30 @@ module.exports = function(grunt) {
         }
       }
     },
-
     handlebars: {
       compile: {
         options: {
           namespace: 'JST'
         },
         files: {
-          '.tmp/scripts/templates.prod.js': ['app/templates/**/*.hbs']
+          '.tmp/scripts/templates.js': ['app/templates/**/*.hbs']
         }
       }
     },
     jasmine: {
       all:{
-        src : 'app/scripts/{,*/}*.js',
+        src : [],
         options: {
-          keepRunner: true,
-          specs : 'test/**/*.js',
-          vendor : [
-            'bower_components/jquery/dist/jquery.js',
-            'bower_components/lodash/dist/lodash.js',
-            'bower_components/backbone/backbone.js',
-            'bower_components/marionette/lib/core/backbone.marionette.js',
-            'bower_components/backbone.babysitter/lib/backbone.babysitter.js',
-            'bower_components/backbone.wreqr/lib/backbone.wreqr.js',
-            'bower_components/bootstrap/dist/js/bootstrap.js',
-            'bower_components/almond/almond.js'
-          ]
+          specs: [
+            'test/*.test.js'
+          ],
+          vendor: [
+            'app/scripts/lib/requirejs/require.js'
+          ],
+          template: require('grunt-template-jasmine-requirejs'),
+          templateOptions: {
+            requireConfigFile: ['app/scripts/require.config.js', 'test/require.config.js']
+          }
         }
       }
     },
@@ -126,20 +136,20 @@ module.exports = function(grunt) {
     fileblocks: {
       options: {
         templates: {
-          'js': '<script data-main="scripts/main" src="${file}"></script>',
+          'requirejs': '<script data-main="scripts/require.config" src="${file}"></script>'
         },
         removeFiles : true
       },
       prod: {
         src: 'docs/index.html',
         blocks: {
-          'app': { src: 'scripts/main.prod.js', cwd: 'docs' }
+          'config': { src: 'scripts/main.js', cwd: 'docs' }
         }
       },
       develop: {
         src: 'app/index.html',
         blocks: {
-          'app': { src: 'scripts/lib/requirejs/require.js', cwd: 'app' }
+          'config': { src: 'scripts/lib/requirejs/require.js', cwd: 'app' }
         }
       },
     },
@@ -163,8 +173,7 @@ module.exports = function(grunt) {
     'handlebars',
     'less',
     'requirejs',
-    'cssmin',
-    'jasmine'
+    'cssmin'
   ]);
 
   grunt.registerTask('deploy', [
@@ -178,5 +187,7 @@ module.exports = function(grunt) {
   grunt.registerTask('develop', ['build', 'fileblocks:develop', 'watch']);
 
   grunt.registerTask('release', ['clean:dist', 'build', 'deploy', 'fileblocks:prod']);
+
+  grunt.registerTask('test', ['jasmine']);
 
 };

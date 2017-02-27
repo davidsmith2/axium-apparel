@@ -1,8 +1,7 @@
 define([
+  'marionette'
 ],
-function() {
-
-  console.log('router');
+function(Marionette) {
 
   var Router = Marionette.AppRouter.extend({
     routes: {

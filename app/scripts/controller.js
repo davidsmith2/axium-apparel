@@ -5,8 +5,6 @@ define([
 ],
 function(config, Entities, Views) {
 
-  console.log('controller');
-
   var ReviewController = Marionette.Controller.extend({
     views: {
       layout: new Views.Layout(),

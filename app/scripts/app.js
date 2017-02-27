@@ -1,11 +1,10 @@
 define([
+  'marionette',
   'controller',
   'router',
   'helpers'
 ],
-function(Controller, Router) {
-
-  console.log('app');
+function(Marionette, Controller, Router) {
 
   var App = Marionette.Application.extend({
     onBeforeStart: function() {
@@ -19,5 +18,7 @@ function(Controller, Router) {
       controller.renderLayout();
     }
   });
+
 	return App;
+
 });

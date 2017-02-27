@@ -1,7 +1,9 @@
 define([
-  'config'
+  'marionette',
+  'config',
+  'bootstrap'
 ],
-function(config) {
+function(Marionette, config) {
 
   var LayoutView = Marionette.LayoutView.extend({
     el : '#product__reviews',
