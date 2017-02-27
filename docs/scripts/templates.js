@@ -6,7 +6,7 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   
 
 
-  return "<div class=\"row\">\n    <div class=\"col-sm-2 col-sm-offset-2\">\n        <h2 class=\"margin-top-0\">Reviews</h2>\n    </div>\n    <div class=\"col-sm-4\">\n        <a class=\"js-create-review\" href=\"#\">Write a review for this product</a>\n    </div>\n</div>\n<div class=\"row\" id=\"product__reviews--collection\">\n\n</div>";
+  return "<div class=\"row\">\n    <div class=\"col-sm-2 col-sm-offset-2\">\n        <h2 class=\"margin-top-0\">Reviews</h2>\n    </div>\n    <div class=\"col-sm-4\">\n        <a class=\"js-create-review\" href=\"#\">Write a review for this product</a>\n    </div>\n</div>\n<div class=\"row\" id=\"product__reviews--collection\"></div>";
   });
 
 this["JST"]["app/templates/modal.hbs"] = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
@@ -71,11 +71,11 @@ function program1(depth0,data) {
   options = {hash:{},inverse:self.noop,fn:self.program(1, program1, data),data:data};
   stack2 = ((stack1 = helpers.renderStars || (depth0 && depth0.renderStars)),stack1 ? stack1.call(depth0, (depth0 && depth0.star_rating), options) : helperMissing.call(depth0, "renderStars", (depth0 && depth0.star_rating), options));
   if(stack2 || stack2 === 0) { buffer += stack2; }
-  buffer += "\n        </div>\n    </div>\n    <p>";
+  buffer += "\n        </div>\n    </div>\n    <div>\n        <p>";
   if (stack2 = helpers.description) { stack2 = stack2.call(depth0, {hash:{},data:data}); }
   else { stack2 = (depth0 && depth0.description); stack2 = typeof stack2 === functionType ? stack2.call(depth0, {hash:{},data:data}) : stack2; }
   buffer += escapeExpression(stack2)
-    + "</p>\n</div>\n";
+    + "</p>\n    </div>\n</div>\n";
   return buffer;
   });
 
