@@ -1,15 +1,12 @@
 @import 'lib/components-bootstrap/less/bootstrap.less';
-@icon-font-path: "fonts/";
-
 @import 'lib/fontawesome/less/font-awesome.less';
-@fa-font-path: 'fonts/';
 
+@import (reference) '_variables';
+@import (reference) '_mixins';
 @import '_header';
 @import '_nav';
 @import '_main';
 @import '_footer';
-@import (reference) '_variables';
-@import (reference) '_mixins';
 
 body {
   background-color: @gray14;
@@ -40,6 +37,15 @@ footer {
   margin-top: 0;
 }
 
+.centered-image {
+  display: block;
+  margin: 0 auto
+}
+
+.font-size-large {
+  font-size: @font-size-large;
+}
+
 .margin-bottom-1 {
   margin-bottom: 1em;
 }
@@ -51,9 +57,4 @@ footer {
 .social-icon__twitter {
   position: relative;
   top: 4px;
-}
-
-.centered-image {
-  display: block;
-  margin: 0 auto
 }

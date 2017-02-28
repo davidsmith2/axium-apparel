@@ -90,19 +90,19 @@ function program1(depth0,data) {
   return buffer;
   }
 
-  buffer += "<form class=\"row\">\n    <div class=\"col-sm-12 margin-bottom-1\">\n        <div class=\"row\">\n            <div class=\"col-sm-6\">\n                <label for=\"star-rating\">\n                    Please rate the Tough Mojo Jacket\n                </label>\n            </div>\n            <div class=\"col-sm-6\">\n                ";
+  buffer += "<form class=\"product-review-form\">\n    <div class=\"margin-bottom-1 row\">\n        <div class=\"col-sm-7\">\n            <label class=\"font-size-large\" for=\"star-rating\">\n                Please Rate the <strong>Tough Mojo Jacket&reg;</strong>\n            </label>\n        </div>\n        <div class=\"col-sm-5\">\n            ";
   options = {hash:{},inverse:self.noop,fn:self.program(1, program1, data),data:data};
   stack2 = ((stack1 = helpers.renderStars || (depth0 && depth0.renderStars)),stack1 ? stack1.call(depth0, 5, options) : helperMissing.call(depth0, "renderStars", 5, options));
   if(stack2 || stack2 === 0) { buffer += stack2; }
-  buffer += "\n            </div>\n        </div>\n    </div>\n    <div class=\"col-sm-12 margin-bottom-1\">\n        <div class=\"row\">\n            <div class=\"col-sm-3\">\n                <label for=\"title\">\n                    Review Title\n                </label>\n            </div>\n            <div class=\"col-sm-9\">\n                <input\n                    class=\"js-edit-review-text input-lg\"\n                    id=\"title\"\n                    name=\"title\"\n                    type=\"text\"\n                    style=\"width: 100%\"\n                    value=\"";
+  buffer += "\n        </div>\n    </div>\n    <div class=\"margin-bottom-1 row\">\n        <div class=\"col-sm-3\">\n            <label class=\"font-size-large\" for=\"title\">\n                Review Title:\n            </label>\n        </div>\n        <div class=\"col-sm-9\">\n            <input\n                class=\"js-edit-review-text input-lg\"\n                id=\"title\"\n                name=\"title\"\n                style=\"width: 100%;\"\n                type=\"text\"\n                value=\"";
   if (stack2 = helpers.title) { stack2 = stack2.call(depth0, {hash:{},data:data}); }
   else { stack2 = (depth0 && depth0.title); stack2 = typeof stack2 === functionType ? stack2.call(depth0, {hash:{},data:data}) : stack2; }
   buffer += escapeExpression(stack2)
-    + "\"\n                >\n            </div>\n        </div>\n    </div>\n    <div class=\"col-sm-12 margin-bottom-1\">\n        <label class=\"sr-only\" for=\"description\">\n            Review Description\n        </label>\n        <textarea\n            class=\"js-edit-review-text input-lg\"\n            name=\"description\"\n            placeholder=\"- Write your review here -\"\n            style=\"width: 100%\"\n            value=\"";
+    + "\"\n            >\n        </div>\n    </div>\n    <div class=\"margin-bottom-1 row\">\n        <div class=\"col-sm-12\">\n            <label class=\"sr-only\" for=\"description\">\n                Review Description\n            </label>\n            <textarea\n                    class=\"js-edit-review-text input-lg\"\n                    name=\"description\"\n                    placeholder=\"- Write your review here -\"\n                    rows=\"5\"\n                    style=\"width: 100%\"\n                    value=\"";
   if (stack2 = helpers.description) { stack2 = stack2.call(depth0, {hash:{},data:data}); }
   else { stack2 = (depth0 && depth0.description); stack2 = typeof stack2 === functionType ? stack2.call(depth0, {hash:{},data:data}) : stack2; }
   buffer += escapeExpression(stack2)
-    + "\"\n        ></textarea>\n    </div>\n</form>";
+    + "\"\n            ></textarea>\n        </div>\n    </div>\n</form>";
   return buffer;
   });
 
