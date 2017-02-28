@@ -9,7 +9,7 @@ require.config({
     'main': './main',
     'jquery': './lib/jquery/jquery',
     'marionette': './lib/marionette/backbone.marionette',
-    'templates': '../../.tmp/scripts/templates',
+    'templates': './templates',
     'underscore': './lib/lodash/lodash.compat'
   },
   shim : {

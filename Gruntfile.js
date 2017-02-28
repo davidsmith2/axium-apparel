@@ -69,12 +69,13 @@ module.exports = function(grunt) {
       }
     },
     clean: {
-      dist: ['docs'],
+      dist: ['.tmp', 'docs']
     },
     jshint: {
       all: [
         'Gruntfile.js',
         'app/scripts/**/*.js',
+        '!app/scripts/templates.js',
         '!app/scripts/lib/**/*.js'
       ]
     },
@@ -102,7 +103,7 @@ module.exports = function(grunt) {
           namespace: 'JST'
         },
         files: {
-          '.tmp/scripts/templates.js': ['app/templates/**/*.hbs']
+          'app/scripts/templates.js': ['app/templates/**/*.hbs']
         }
       }
     },
