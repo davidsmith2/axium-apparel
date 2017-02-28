@@ -98,7 +98,7 @@ function program1(depth0,data) {
   if (stack2 = helpers.title) { stack2 = stack2.call(depth0, {hash:{},data:data}); }
   else { stack2 = (depth0 && depth0.title); stack2 = typeof stack2 === functionType ? stack2.call(depth0, {hash:{},data:data}) : stack2; }
   buffer += escapeExpression(stack2)
-    + "\"\n            >\n        </div>\n    </div>\n    <div class=\"margin-bottom-1 row\">\n        <div class=\"col-sm-12\">\n            <label class=\"sr-only\" for=\"description\">\n                Review Description\n            </label>\n            <textarea\n                    class=\"js-edit-review-text input-lg\"\n                    name=\"description\"\n                    placeholder=\"- Write your review here -\"\n                    rows=\"5\"\n                    style=\"width: 100%\"\n                    value=\"";
+    + "\"\n            >\n        </div>\n    </div>\n    <div class=\"row\">\n        <div class=\"col-sm-12\">\n            <label class=\"sr-only\" for=\"description\">\n                Review Description\n            </label>\n            <textarea\n                    class=\"js-edit-review-text input-lg\"\n                    name=\"description\"\n                    placeholder=\"- Write your review here -\"\n                    rows=\"5\"\n                    style=\"width: 100%\"\n                    value=\"";
   if (stack2 = helpers.description) { stack2 = stack2.call(depth0, {hash:{},data:data}); }
   else { stack2 = (depth0 && depth0.description); stack2 = typeof stack2 === functionType ? stack2.call(depth0, {hash:{},data:data}) : stack2; }
   buffer += escapeExpression(stack2)
