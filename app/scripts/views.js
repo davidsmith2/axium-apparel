@@ -74,20 +74,33 @@ function(Marionette, config) {
     }
   });
 
-  var ReviewView = Marionette.ItemView.extend({
-    template: config.templates.review,
-    className: 'row'
-  });
-
   var ReviewsView = Marionette.CollectionView.extend({
     className: "col-sm-12",
-    childView: ReviewView
+    childView: Marionette.ItemView.extend({
+      template: config.templates.review,
+      className: 'row'
+    })
+  });
+
+  var NavView = Marionette.ItemView.extend({
+    el: '.nav',
+    ui: {
+      dropdown: '.dropdown'
+    },
+    initialize: function () {
+      $(this.ui.dropdown).on('show.bs.dropdown', function() {
+        $(this).find('.dropdown-menu').first().stop(true, true).slideDown();
+      });
+      $(this.ui.dropdown).on('hide.bs.dropdown', function() {
+        $(this).find('.dropdown-menu').first().stop(true, true).slideUp();
+      });
+    }
   });
 
   return {
     Layout: LayoutView,
     Modal: ModalView,
-    Review: ReviewView,
+    Nav: NavView,
     ReviewModalBody: ReviewModalBodyView,
     ReviewModalFooter: ReviewModalFooterView,
     Reviews: ReviewsView

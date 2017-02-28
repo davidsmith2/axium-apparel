@@ -5,8 +5,9 @@ define([
 ],
 function(config, Entities, Views) {
 
-  var ReviewController = Marionette.Controller.extend({
+  var Controller = Marionette.Controller.extend({
     views: {
+      nav: new Views.Nav(),
       layout: new Views.Layout(),
       reviews: new Views.Reviews({
         collection: new Entities.ReviewCollection(config.reviewData._1)
@@ -15,42 +16,43 @@ function(config, Entities, Views) {
     initialize: function(options) {
       this.modalRegion = options.modalRegion;
     },
-    renderLayout: function() {
-      this.listenTo(this.views.layout, 'render', this.onLayoutRender);
-      this.listenTo(this.views.layout, config.events.createReview, this.onReviewCreate);
+    /**
+     * @public
+     */
+    show: function() {
+      this.listenTo(this.views.layout, 'render', function() {
+        this.views.layout.collectionRegion.show(this.views.reviews);
+      }.bind(this));
+      this.listenTo(this.views.layout, config.events.createReview, this.onCreateReview);
       this.views.layout.render();
     },
-    onLayoutRender: function() {
-      this.views.layout.collectionRegion.show(this.views.reviews);
-    },
-    onBeforeShowModal: function() {
-      this.reviewModel = new Entities.ReviewModel();
-      var reviewModalBody = new Views.ReviewModalBody({
-        model: this.reviewModel
-      });
-      var reviewModalFooter = new Views.ReviewModalFooter({
-        model: this.reviewModel
-      });
-      this.listenTo(reviewModalBody, config.events.editReview, this.onReviewEdit);
-      this.listenTo(reviewModalFooter, config.events.submitReview, this.onReviewSubmit);
-      this.views.modal.bodyRegion.show(reviewModalBody);
-      this.views.modal.footerRegion.show(reviewModalFooter);
-    },
-    onReviewCreate: function() {
+    onCreateReview: function() {
       this.views.modal = new Views.Modal();
-      this.listenTo(this.views.modal, 'before:show', this.onBeforeShowModal);
+      this.listenTo(this.views.modal, 'before:show', function() {
+        this.reviewModel = new Entities.ReviewModel();
+        var reviewModalBody = new Views.ReviewModalBody({
+          model: this.reviewModel
+        });
+        var reviewModalFooter = new Views.ReviewModalFooter({
+          model: this.reviewModel
+        });
+        this.listenTo(reviewModalBody, config.events.editReview, this.onEditReview);
+        this.listenTo(reviewModalFooter, config.events.submitReview, this.onSubmitReview);
+        this.views.modal.bodyRegion.show(reviewModalBody);
+        this.views.modal.footerRegion.show(reviewModalFooter);
+      }.bind(this));
       this.modalRegion.show(this.views.modal);
     },
-    onReviewEdit: function(key, value) {
+    onEditReview: function(key, value) {
       this.reviewModel.set(key, value);
     },
-    onReviewSubmit: function() {
+    onSubmitReview: function() {
       this.reviewModel.set(config.reviewData._2);
       this.views.reviews.collection.add(this.reviewModel);
       this.views.modal.hide();
     }
   });
 
-  return ReviewController;
+  return Controller;
 
 });

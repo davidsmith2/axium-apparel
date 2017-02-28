@@ -19,11 +19,11 @@ function(App) {
     describe('onStart', function() {
 
       it('should render the layout', function() {
-        var controller = {renderLayout: function() {}};
+        var controller = {show: function() {}};
         var app = new App({controller: controller});
-        spyOn(controller, 'renderLayout');
+        spyOn(controller, 'show');
         app.onStart();
-        expect(controller.renderLayout).toHaveBeenCalled();
+        expect(controller.show).toHaveBeenCalled();
       });
 
     });
