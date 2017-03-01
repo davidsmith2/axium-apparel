@@ -1,0 +1,71 @@
+// bootstrap classes: nav navbar-nav
+.primaryNav-navbar {
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+// bootstrap classes: dropdown
+.primaryNav-dropdown {
+  background-image: url("@{imagePath}/nav-divider.png");
+  background-position: top right;
+  background-repeat: no-repeat;
+  width: 20%;
+  &:last-child {
+    background-image: none;
+  }
+}
+
+// bootstrap classes: dropdown-toggle
+.primaryNav-dropdownToggle {
+  background: none !important;
+  color: @green1;
+  font-size: @font-size-large;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+// bootstrap classes: dropdown-menu
+.primaryNav-dropdownMenu {
+  margin-left: -5%;
+  margin-top: .5em;
+  padding: 0;
+  width: 110%;
+  >.divider {
+    .primaryNav-dropdownMenuDivider;
+  }
+  a {
+    .primaryNav-dropdownMenuLink;
+  }
+}
+
+// bootstrap classes: divider
+.primaryNav-dropdownMenuDivider {
+  margin: 0;
+}
+
+// bootstrap classes: none
+.primaryNav-dropdownMenuLink {
+  font-size: @font-size-large;
+  &:hover {
+    background-color: @green1;
+    color: white;
+  }
+}
+
+.primaryNav {
+  background-color: white;
+  border-bottom: 1px solid black;
+  position: relative;
+  >.nav {
+    .primaryNav-navbar;
+    >.dropdown {
+      .primaryNav-dropdown;
+      >.dropdown-toggle {
+        .primaryNav-dropdownToggle;
+      }
+      >.dropdown-menu {
+        .primaryNav-dropdownMenu;
+      }
+    }
+  }
+}

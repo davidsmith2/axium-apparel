@@ -9,52 +9,48 @@
         <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
         <link rel="stylesheet" href="styles/main.css">
     </head>
-    <body>
+    <body class="pageBody">
         <div class="container">
-            <header class="row">
-                <div class="header__logo col-sm-4">
-                    <img src="images/axiom-logo-main.png">
+            <header class="pageHeader row">
+                <div class="col-sm-4 vertically-center">
+                    <img class="logo" src="images/axiom-logo-main.png">
                 </div>
-                <div class="header__utils col-sm-4 col-sm-offset-4">
-                    <div class="header__search row">
-                        <div class="col-sm-12">
-                            <div id="custom-search-input">
+                <div class="col-sm-4 col-sm-offset-4 vertically-center">
+                    <div class="row">
+                        <div class="col-sm-12 ">
+                            <div class="search" id="custom-search-input">
                                 <div class="input-group col-md-12">
                                     <input type="text" class="form-control input-sm" placeholder="SEARCH FOR GEAR">
                                     <span class="input-group-btn">
-                                        <button class="btn btn-info btn-lg" type="button">
-                                            <i class="glyphicon glyphicon-search"></i>
-                                        </button>
-                                    </span>
+                                    <button class="btn btn-info btn-lg" type="button">
+                                        <i class="glyphicon glyphicon-search"></i>
+                                    </button>
+                                </span>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-sm-12">
-                            <div class="header__social">
-                                <ul class="list-inline">
-                                    <li>
-                                        <img src="images/fb-icon.png">
-                                    </li>
-                                    <li>
-                                        <img class="social-icon__twitter" src="images/twitter-icon.png">
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="header__links">
-                                <ul class="list-inline">
-                                    <li>My Account</li>
-                                    <li>Cart</li>
-                                    <li>Logout</li>
-                                </ul>
-                            </div>
+                            <ul class="socialLinks pull-left">
+                                <li class="socialLinks-item">
+                                    <img data-platform="fb" src="images/fb-icon.png">
+                                </li>
+                                <li class="socialLinks-item">
+                                    <img data-platform="twitter" src="images/twitter-icon.png">
+                                </li>
+                            </ul>
+                            <ul class="secondaryNav pull-right">
+                                <li class="secondaryNav-item">My Account</li>
+                                <li class="secondaryNav-item">Cart</li>
+                                <li class="secondaryNav-item">Logout</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
             </header>
-            <nav class="row">
-                <ul class="nav navbar-nav nav__links col-sm-12">
+            <nav class="primaryNav row">
+                <ul class="col-sm-12 nav navbar-nav">
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Camping <span class="glyphicon glyphicon-chevron-down pull-right"></span></a>
                         <ul class="dropdown-menu">
@@ -93,21 +89,24 @@
                     </li>
                 </ul>
             </nav>
-            <main role="main" id="main">
-                <ul class="breadcrumb">
+            <main class="pageMain" id="main" role="main">
+                <ul class="breadcrumbs">
                     <li><a href="#">Clothing</a></li>
                     <li class="active">Outerwear</li>
                 </ul>
-                <div class="row" id="product__order-form">
+                <section class="pageSection pageSection-1 row">
                     <div class="col-sm-6">
-                        <img class="centered-image" src="images/tough-mojo-jacket-img1.png">
+                        <img class="product-image" src="images/tough-mojo-jacket-img1.png">
                     </div>
                     <div class="col-sm-4">
-                        <div>
-                            <h2>Tough Mojo Jacket</h2>
-                            <p class="uppercase">
-                                On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure of the moment, so blinded by desire, that they cannot foresee the pain and trouble that are bound to ensue; and equal blame belongs to those who fail in their duty through weakness of will, which is the same as saying through shrinking from toil and pain. These cases are perfectly simple and easy to distinguish. In a free hour, when our power of choice is untrammelled and when nothing prevents our being able to do what we like best, every pleasure is to be welcomed and every pain avoided.                            </p>
-                            <form class="row">
+                        <div class="product">
+                            <h2 class="product-title">
+                                Tough Mojo Jacket
+                            </h2>
+                            <p class="product-summary">
+                                On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure of the moment, so blinded by desire, that they cannot foresee the pain and trouble that are bound to ensue; and equal blame belongs to those who fail in their duty through weakness of will, which is the same as saying through shrinking from toil and pain. These cases are perfectly simple and easy to distinguish. In a free hour, when our power of choice is untrammelled and when nothing prevents our being able to do what we like best, every pleasure is to be welcomed and every pain avoided.
+                            </p>
+                            <form class="product-orderForm">
                                 <div class="col-sm-12">
                                     <div class="form-group pull-left">
                                         <label class="sr-only" for="product-size">
@@ -155,46 +154,48 @@
                             </form>
                         </div>
                     </div>
-                </div>
-                <div class="row" id="product__description">
+                </section>
+                <section class="pageSection pageSection-2 row">
                     <div class="col-sm-6">
-                        <img class="centered-image" src="images/tough-mojo-jacket-img2.png">
+                        <img class="product-image" src="images/tough-mojo-jacket-img2.png">
                     </div>
                     <div class="col-sm-4">
-                        <p>
-                            On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure of the moment, so blinded by desire, that they cannot foresee the pain and trouble that are bound to ensue.
-                        </p>
-                        <p>
-                            And equal blame belongs to those who fail in their duty through weakness of will, which is the same as saying through shrinking from toil and pain. These cases are perfectly simple and easy to distinguish. In a free hour, when our power of choice is untrammelled and when nothing prevents our being able to do what we like best, every pleasure is to be welcomed and every pain avoided.
-                        </p>
-                        <p>
-                            But in certain circumstances and owing to the claims of duty or the obligations of business it will frequently occur that pleasures have to be repudiated and annoyances accepted. The wise man therefore always holds in these matters to this principle of selection: he rejects pleasures to secure other greater pleasures, or else he endures pains to avoid worse pains.
-                        </p>
+                        <div class="product-description">
+                            <p>
+                                On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure of the moment, so blinded by desire, that they cannot foresee the pain and trouble that are bound to ensue.
+                            </p>
+                            <p>
+                                And equal blame belongs to those who fail in their duty through weakness of will, which is the same as saying through shrinking from toil and pain. These cases are perfectly simple and easy to distinguish. In a free hour, when our power of choice is untrammelled and when nothing prevents our being able to do what we like best, every pleasure is to be welcomed and every pain avoided.
+                            </p>
+                            <p>
+                                But in certain circumstances and owing to the claims of duty or the obligations of business it will frequently occur that pleasures have to be repudiated and annoyances accepted. The wise man therefore always holds in these matters to this principle of selection: he rejects pleasures to secure other greater pleasures, or else he endures pains to avoid worse pains.
+                            </p>
+                        </div>
                     </div>
-                </div>
-                <div class="row" id="product__reviews">
-                </div>
+                </section>
+                <section class="js-productReviewsRegion pageSection pageSection-3 row">
+                </section>
             </main>
-            <footer class="row">
-                <div class="footer__logo col-sm-2">
-                    <img src="images/axiom-logo-small.png">
+            <footer class="pageFooter row">
+                <div class="col-sm-3 vertically-center">
+                    <img class="logo" src="images/axiom-logo-small.png">
                 </div>
-                <div class="footer__links col-sm-7 col-sm-offset-1">
-                    <ul class="list-inline pull-right">
-                        <li>About Us</li>
-                        <li>Contact Us</li>
-                        <li>Privacy Policy</li>
-                        <li>Terms of Service</li>
-                        <li>Site Map</li>
+                <div class="col-sm-6 col-sm-offset-2 vertically-center">
+                    <ul class="secondaryNav pull-right">
+                        <li class="secondaryNav-item">About Us</li>
+                        <li class="secondaryNav-item">Contact Us</li>
+                        <li class="secondaryNav-item">Privacy Policy</li>
+                        <li class="secondaryNav-item">Terms of Service</li>
+                        <li class="secondaryNav-item">Site Map</li>
                     </ul>
                 </div>
-                <div class="footer__social col-sm-2">
-                    <ul class="list-inline pull-right">
-                        <li>
-                            <img class="social-icon__fb" src="images/fb-icon.png">
+                <div class="col-sm-1 vertically-center">
+                    <ul class="socialLinks pull-right">
+                        <li class="socialLinks-item">
+                            <img data-platform="fb" src="images/fb-icon.png">
                         </li>
-                        <li>
-                            <img class="social-icon__twitter" src="images/twitter-icon.png">
+                        <li class="socialLinks-item">
+                            <img data-platform="twitter" src="images/twitter-icon.png">
                         </li>
                     </ul>
                 </div>

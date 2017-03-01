@@ -6,13 +6,14 @@ define([
 function(Marionette, config) {
 
   var LayoutView = Marionette.LayoutView.extend({
-    el : '#product__reviews',
+    className: 'col-sm-12',
+    el : '.js-productReviewsRegion',
     template: config.templates.layout,
     regions: {
-      collectionRegion: '#product__reviews--collection'
+      collectionRegion: '.js-productReviewsCollectionRegion'
     },
     ui: {
-      createReview: '.js-create-review'
+      createReview: '.js-createReview'
     },
     triggers: {
       'click @ui.createReview': config.events.createReview
@@ -43,8 +44,8 @@ function(Marionette, config) {
   var ReviewModalBodyView = Marionette.ItemView.extend({
     template: config.templates.reviewModalBody,
     ui: {
-      editReviewText: '.js-edit-review-text',
-      editReviewStar: '.js-edit-review-star'
+      editReviewText: '.js-editReviewText',
+      editReviewStar: '.js-editReviewStar'
     },
     events: {
       'keyup @ui.editReviewText': 'onTextEdit',
@@ -67,7 +68,7 @@ function(Marionette, config) {
   var ReviewModalFooterView = Marionette.ItemView.extend({
     template: config.templates.reviewModalFooter,
     ui: {
-      btn: '.js-submit-review'
+      btn: '.js-submitReview'
     },
     triggers: {
       'click @ui.btn': config.events.submitReview
@@ -78,7 +79,7 @@ function(Marionette, config) {
     className: "col-sm-12",
     childView: Marionette.ItemView.extend({
       template: config.templates.review,
-      className: 'row'
+      className: 'margin-bottom-1 row'
     })
   });
 
