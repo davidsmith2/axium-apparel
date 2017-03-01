@@ -6,7 +6,7 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   
 
 
-  return "<div class=\"row\">\n    <div class=\"col-sm-4 col-sm-offset-2\">\n        <div class=\"pull-left\">\n            <h2 class=\"margin-top-0\">Reviews</h2>\n        </div>\n        <div class=\"pull-right\">\n            <a class=\"js-create-review\" href=\"#\">Write a review for this product</a>\n        </div>\n    </div>\n</div>\n<div class=\"row\" id=\"product__reviews--collection\"></div>";
+  return "<div class=\"col-sm-12\">\n    <div class=\"row\">\n        <div class=\"col-sm-4 col-sm-offset-2 productReviewsHeader\">\n            <h2 class=\"productReviewsHeader-title\">Reviews</h2>\n            <ul class=\"productReviewsHeader-actions\">\n                <li>\n                    <a class=\"js-createReview\" href=\"#\">Write a review for this product</a>\n                </li>\n            </ul>\n        </div>\n    </div>\n    <div class=\"js-productReviewsCollectionRegion row\"></div>\n</div>\n";
   });
 
 this["JST"]["app/templates/modal.hbs"] = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {

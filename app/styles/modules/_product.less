@@ -1,0 +1,56 @@
+.product-summary {
+  .uppercase;
+}
+
+.product-image {
+  .horizontally-center;
+}
+
+.product-orderForm {
+  .row;
+  select {
+    background-color: @green3;
+    width: 10em;
+  }
+  input[type=text] {
+    color: black;
+    width: 4em;
+  }
+  button[type=button] {
+    background-color: @green3;
+    width: 3em;
+    &:hover {
+      color: white;
+    }
+  }
+  input[type=submit] {
+    background-color: @green1;
+    width: 10em;
+    &:hover {
+      color: white;
+    }
+  }
+}
+
+.productReviewsHeader-title {
+  .margin-top-0;
+  .pull-left;
+}
+
+.productReviewsHeader-actions {
+  .list-inline;
+  .pull-right;
+  a {
+    color: white;
+  }
+}
+
+// unused classes
+
+.product {}
+
+.product-title {}
+
+.product-description {}
+
+.productReviewsHeader {}

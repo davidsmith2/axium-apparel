@@ -1,73 +1,15 @@
 @import 'lib/components-bootstrap/less/bootstrap.less';
 @import 'lib/fontawesome/less/font-awesome.less';
+@import 'lib/custom-search-input/custom-search-input';
 
 @import (reference) '_variables';
-@import (reference) '_mixins';
-@import '_header';
-@import '_nav';
-@import '_main';
-@import '_footer';
+@import '_mixins';
 
-body {
-  background-color: @gray14;
-  font-family: 'Raleway', sans-serif;
-}
-
-header {
-  .header-footer(96px);
-  box-shadow: 0 4px 2px -2px @gray9;
-  margin-bottom: 4px;
-}
-
-nav {
-  background-color: white;
-  border-bottom: 1px solid black;
-  position: relative;
-}
-
-main {
-  color: white;
-}
-
-footer {
-  .header-footer(67px);
-}
-
-.margin-top-0 {
-  margin-top: 0;
-}
-
-.centered-image {
-  display: block;
-  margin: 0 auto
-}
-
-.font-size-large {
-  font-size: @font-size-large;
-}
-
-.margin-bottom-1 {
-  margin-bottom: 1em;
-}
-
-.margin-right-1 {
-  margin-right: 1em;
-}
-
-.modal-body {
-  padding-bottom: 0;
-}
-
-.modal-footer {
-  border-top: none;
-  padding-top: 0;
-}
-
-.social-icon__twitter {
-  position: relative;
-  top: 4px;
-}
-
-.uppercase {
-  text-transform: uppercase;
-}
+@import "modules/_breadcrumbs";
+@import "modules/_modal";
+@import "modules/_page";
+@import "modules/_primaryNav";
+@import "modules/_product";
+@import "modules/_search";
+@import "modules/_secondaryNav";
+@import "modules/_socialLinks";
