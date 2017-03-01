@@ -44,8 +44,8 @@ function(Marionette, config) {
   var ReviewModalBodyView = Marionette.ItemView.extend({
     template: config.templates.reviewModalBody,
     ui: {
-      editReviewText: '.js-edit-review-text',
-      editReviewStar: '.js-edit-review-star'
+      editReviewText: '.js-editReviewText',
+      editReviewStar: '.js-editReviewStar'
     },
     events: {
       'keyup @ui.editReviewText': 'onTextEdit',
@@ -68,7 +68,7 @@ function(Marionette, config) {
   var ReviewModalFooterView = Marionette.ItemView.extend({
     template: config.templates.reviewModalFooter,
     ui: {
-      btn: '.js-submit-review'
+      btn: '.js-submitReview'
     },
     triggers: {
       'click @ui.btn': config.events.submitReview

@@ -19,7 +19,7 @@ function(Backbone) {
     defaults: {
       path: 'images/',
       extension: '.png',
-      className: 'js-edit-review-star'
+      className: 'js-editReviewStar'
     },
     initialize: function(options) {
       this.set('src', this.getSrc(options.name));
