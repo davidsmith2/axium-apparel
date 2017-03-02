@@ -55,19 +55,19 @@ function program1(depth0,data) {
   return buffer;
   }
 
-  buffer += "<div class=\"col-sm-2\">\n    <figure class=\"pull-right\">\n        <img src=\"images/"
+  buffer += "<div class=\"col-sm-2\">\n    <figure class=\"review-figure\">\n        <img src=\"images/"
     + escapeExpression(((stack1 = ((stack1 = (depth0 && depth0.user)),stack1 == null || stack1 === false ? stack1 : stack1.avatar)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
     + "\">\n        <figcaption>"
     + escapeExpression(((stack1 = ((stack1 = (depth0 && depth0.user)),stack1 == null || stack1 === false ? stack1 : stack1.name)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
-    + "</figcaption>\n    </figure>\n</div>\n<div class=\"col-sm-8\">\n    <div class=\"clearfix\">\n        <div class=\"pull-left margin-right-1\">\n            <h3 class=\"margin-top-0\">";
+    + "</figcaption>\n    </figure>\n</div>\n<div class=\"col-sm-8\">\n    <div class=\"review\">\n        <h3 class=\"review-title\">";
   if (stack2 = helpers.title) { stack2 = stack2.call(depth0, {hash:{},data:data}); }
   else { stack2 = (depth0 && depth0.title); stack2 = typeof stack2 === functionType ? stack2.call(depth0, {hash:{},data:data}) : stack2; }
   buffer += escapeExpression(stack2)
-    + "</h3>\n        </div>\n        <div class=\"pull-left margin-right-1\">\n            ";
+    + "</h3>\n        <div class=\"review-date\">\n            ";
   if (stack2 = helpers.date) { stack2 = stack2.call(depth0, {hash:{},data:data}); }
   else { stack2 = (depth0 && depth0.date); stack2 = typeof stack2 === functionType ? stack2.call(depth0, {hash:{},data:data}) : stack2; }
   buffer += escapeExpression(stack2)
-    + "\n        </div>\n        <div class=\"pull-left\">\n            ";
+    + "\n        </div>\n        <div class=\"review-starRating\">\n            ";
   options = {hash:{},inverse:self.noop,fn:self.program(1, program1, data),data:data};
   stack2 = ((stack1 = helpers.renderStars || (depth0 && depth0.renderStars)),stack1 ? stack1.call(depth0, (depth0 && depth0.star_rating), options) : helperMissing.call(depth0, "renderStars", (depth0 && depth0.star_rating), options));
   if(stack2 || stack2 === 0) { buffer += stack2; }

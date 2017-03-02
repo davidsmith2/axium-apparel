@@ -1,3 +1,27 @@
+#primaryNav {
+  background-color: white;
+  border-bottom: 1px solid black;
+  padding-right: 1em;
+  padding-left: 1em;
+  position: relative;
+  >.nav {
+    .primaryNav-navbar;
+    >.dropdown {
+      .primaryNav-dropdown;
+      >.dropdown-toggle {
+        .primaryNav-dropdownToggle;
+      }
+      >.dropdown-menu {
+        .primaryNav-dropdownMenu;
+      }
+    }
+  }
+  @media (min-width: @screen-sm) {
+    padding-right: 0;
+    padding-left: 0;
+  }
+}
+
 // bootstrap classes: nav navbar-nav
 .primaryNav-navbar {
   margin-top: 1em;
@@ -6,12 +30,16 @@
 
 // bootstrap classes: dropdown
 .primaryNav-dropdown {
-  background-image: url("@{imagePath}/nav-divider.png");
-  background-position: top right;
-  background-repeat: no-repeat;
-  width: 20%;
-  &:last-child {
-    background-image: none;
+  margin-bottom: 1em;
+  @media (min-width: @screen-sm) {
+    background-image: url("@{imagePath}/nav-divider.png");
+    background-position: top right;
+    background-repeat: no-repeat;
+    margin-bottom: 0;
+    width: 20%;
+    &:last-child {
+      background-image: none;
+    }
   }
 }
 
@@ -26,15 +54,17 @@
 
 // bootstrap classes: dropdown-menu
 .primaryNav-dropdownMenu {
-  margin-left: -5%;
   margin-top: .5em;
   padding: 0;
-  width: 110%;
   >.divider {
     .primaryNav-dropdownMenuDivider;
   }
   a {
     .primaryNav-dropdownMenuLink;
+  }
+  @media (min-width: @screen-sm) {
+    margin-left: -5%;
+    width: 110%;
   }
 }
 
@@ -49,23 +79,5 @@
   &:hover {
     background-color: @green1;
     color: white;
-  }
-}
-
-.primaryNav {
-  background-color: white;
-  border-bottom: 1px solid black;
-  position: relative;
-  >.nav {
-    .primaryNav-navbar;
-    >.dropdown {
-      .primaryNav-dropdown;
-      >.dropdown-toggle {
-        .primaryNav-dropdownToggle;
-      }
-      >.dropdown-menu {
-        .primaryNav-dropdownMenu;
-      }
-    }
   }
 }

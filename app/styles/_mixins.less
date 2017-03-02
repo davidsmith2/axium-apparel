@@ -7,6 +7,10 @@
   color: white;
   font-size: @font-size-small;
   height: @height;
+  padding-top: 1em;
+  @media (min-width: @screen-sm) {
+    padding-top: 0;
+  }
 }
 
 .horizontally-center {
@@ -31,7 +35,10 @@
 }
 
 .vertically-center {
-  position: relative;
-  top: 50%;
-  transform: translateY(-50%);
+  .margin-bottom-1;
+  @media (min-width: @screen-sm) {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+  }
 }

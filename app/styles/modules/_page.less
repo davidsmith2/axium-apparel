@@ -4,9 +4,12 @@
 }
 
 .pageHeader {
-  .header-footer(96px);
+  .header-footer(auto);
   box-shadow: 0 4px 2px -2px @gray9;
   margin-bottom: 4px;
+  @media (min-width: @screen-sm) {
+    .header-footer(96px);
+  }
 }
 
 .pageMain {
@@ -14,7 +17,10 @@
 }
 
 .pageFooter {
-  .header-footer(67px);
+  .header-footer(auto);
+  @media (min-width: @screen-sm) {
+    .header-footer(67px);
+  }
 }
 
 .pageSection {}
@@ -24,6 +30,9 @@
   box-shadow: 0 4px 2px -2px @gray5;
   margin-bottom: 2px;
   padding: 1em 0;
+  @media (min-width: @screen-sm) {
+    position: relative;
+  }
 }
 
 .pageSection-2 {

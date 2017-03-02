@@ -4,31 +4,47 @@
 
 .product-image {
   .horizontally-center;
+  .img-responsive;
 }
 
-.product-orderForm {
-  .row;
-  select {
-    background-color: @green3;
-    width: 10em;
+#product-size {
+  .form-control;
+  background-color: @green3;
+  color: white;
+}
+
+#product-color {
+  .form-control;
+  background-color: @green3;
+  color: white;
+}
+
+#product-qty {
+  .form-control;
+  .input-sm;
+  color: black;
+}
+
+.product-qty-ctrl {
+  .btn;
+  .btn-default;
+  .btn-sm;
+  background-color: @green3;
+  color: white;
+  &:hover {
+    color: white;
   }
-  input[type=text] {
-    color: black;
-    width: 4em;
-  }
-  button[type=button] {
-    background-color: @green3;
-    width: 3em;
-    &:hover {
-      color: white;
-    }
-  }
-  input[type=submit] {
-    background-color: @green1;
-    width: 10em;
-    &:hover {
-      color: white;
-    }
+}
+
+#product-submit {
+  .btn;
+  .btn-primary;
+  .btn-sm;
+  .form-control;
+  background-color: @green1;
+  color: white;
+  &:hover {
+    color: white;
   }
 }
 
@@ -52,5 +68,3 @@
 .product-title {}
 
 .product-description {}
-
-.productReviewsHeader {}

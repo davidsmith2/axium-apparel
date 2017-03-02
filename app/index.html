@@ -22,17 +22,22 @@
                                 <div class="input-group col-md-12">
                                     <input type="text" class="form-control input-sm" placeholder="SEARCH FOR GEAR">
                                     <span class="input-group-btn">
-                                    <button class="btn btn-info btn-lg" type="button">
-                                        <i class="glyphicon glyphicon-search"></i>
-                                    </button>
-                                </span>
+                                        <button class="btn btn-info btn-lg" type="button">
+                                            <i class="glyphicon glyphicon-search"></i>
+                                        </button>
+                                    </span>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-sm-12">
-                            <ul class="socialLinks pull-left">
+                            <ul class="secondaryNav">
+                                <li class="secondaryNav-item">My Account</li>
+                                <li class="secondaryNav-item">Cart</li>
+                                <li class="secondaryNav-item">Logout</li>
+                            </ul>
+                            <ul class="socialLinks">
                                 <li class="socialLinks-item">
                                     <img data-platform="fb" src="images/fb-icon.png">
                                 </li>
@@ -40,16 +45,11 @@
                                     <img data-platform="twitter" src="images/twitter-icon.png">
                                 </li>
                             </ul>
-                            <ul class="secondaryNav pull-right">
-                                <li class="secondaryNav-item">My Account</li>
-                                <li class="secondaryNav-item">Cart</li>
-                                <li class="secondaryNav-item">Logout</li>
-                            </ul>
                         </div>
                     </div>
                 </div>
             </header>
-            <nav class="primaryNav row">
+            <nav class="row" id="primaryNav">
                 <ul class="col-sm-12 nav navbar-nav">
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Camping <span class="glyphicon glyphicon-chevron-down pull-right"></span></a>
@@ -90,11 +90,11 @@
                 </ul>
             </nav>
             <main class="pageMain" id="main" role="main">
-                <ul class="breadcrumbs">
-                    <li><a href="#">Clothing</a></li>
-                    <li class="active">Outerwear</li>
-                </ul>
                 <section class="pageSection pageSection-1 row">
+                    <ul class="breadcrumbs">
+                        <li><a href="#">Clothing</a></li>
+                        <li class="active">Outerwear</li>
+                    </ul>
                     <div class="col-sm-6">
                         <img class="product-image" src="images/tough-mojo-jacket-img1.png">
                     </div>
@@ -106,13 +106,13 @@
                             <p class="product-summary">
                                 On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure of the moment, so blinded by desire, that they cannot foresee the pain and trouble that are bound to ensue; and equal blame belongs to those who fail in their duty through weakness of will, which is the same as saying through shrinking from toil and pain. These cases are perfectly simple and easy to distinguish. In a free hour, when our power of choice is untrammelled and when nothing prevents our being able to do what we like best, every pleasure is to be welcomed and every pain avoided.
                             </p>
-                            <form class="product-orderForm">
-                                <div class="col-sm-12">
-                                    <div class="form-group pull-left">
+                            <form class="product-orderForm row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
                                         <label class="sr-only" for="product-size">
                                             Select Size
                                         </label>
-                                        <select class="input-sm" id="product-size" name="size">
+                                        <select id="product-size" name="size">
                                             <option>Select Size</option>
                                             <option value="xs">Extra small</option>
                                             <option value="sm">Small</option>
@@ -120,11 +120,13 @@
                                             <option value="lg">Large</option>
                                         </select>
                                     </div>
-                                    <div class="form-group pull-right">
-                                        <label class="sr-only" for="product-name">
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label class="sr-only" for="product-color">
                                             Select Color
                                         </label>
-                                        <select class="input-sm" id="product-name" name="color">
+                                        <select id="product-color" name="color">
                                             <option>Select Color</option>
                                             <option value="red">Red</option>
                                             <option value="green">Green</option>
@@ -132,23 +134,29 @@
                                         </select>
                                     </div>
                                 </div>
-                                <div class="col-sm-12">
-                                    <div class="input-group pull-left">
+                                <div class="col-sm-6">
+                                    <div class="form-group input-group">
                                         <label class="sr-only" for="product-qty">
                                             Select Quantity
                                         </label>
-                                        <input class="input-sm" id="product-qty" name="qty" placeholder="Quantity" type="text">
-                                        <button class="btn btn-sm pull-left" type="button">
-                                            <span class="glyphicon glyphicon-chevron-down"></span>
-                                            <span class="sr-only">Decrease</span>
-                                        </button>
-                                        <button class="btn btn-sm pull-right" type="button">
-                                            <span class="glyphicon glyphicon-chevron-up"></span>
-                                            <span class="sr-only">Increase</span>
-                                        </button>
+                                        <span class="input-group-btn">
+                                            <button class="product-qty-ctrl" type="button">
+                                                <span class="glyphicon glyphicon-chevron-down"></span>
+                                                <span class="sr-only">Decrease</span>
+                                            </button>
+                                        </span>
+                                        <input id="product-qty" name="qty" placeholder="Quantity" type="text">
+                                        <span class="input-group-btn">
+                                            <button class="product-qty-ctrl" type="button">
+                                                <span class="glyphicon glyphicon-chevron-up"></span>
+                                                <span class="sr-only">Increase</span>
+                                            </button>
+                                        </span>
                                     </div>
-                                    <div class="form-group pull-right">
-                                        <input class="btn btn-primary btn-sm input-sm" type="submit" value="Add To Cart">
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <input id="product-submit" type="submit" value="Add To Cart">
                                     </div>
                                 </div>
                             </form>
@@ -181,7 +189,7 @@
                     <img class="logo" src="images/axiom-logo-small.png">
                 </div>
                 <div class="col-sm-6 col-sm-offset-2 vertically-center">
-                    <ul class="secondaryNav pull-right">
+                    <ul class="secondaryNav">
                         <li class="secondaryNav-item">About Us</li>
                         <li class="secondaryNav-item">Contact Us</li>
                         <li class="secondaryNav-item">Privacy Policy</li>
@@ -190,7 +198,7 @@
                     </ul>
                 </div>
                 <div class="col-sm-1 vertically-center">
-                    <ul class="socialLinks pull-right">
+                    <ul class="socialLinks">
                         <li class="socialLinks-item">
                             <img data-platform="fb" src="images/fb-icon.png">
                         </li>
