@@ -9,7 +9,7 @@ function(helpers) {
 
       it('should output requisite number of images', function() {
         var stars = helpers.renderStars(1);
-        expect(stars).toEqual('<img class="js-edit-review-star" src="images/star.png">');
+        expect(stars).toEqual('<img class="js-editReviewStar" src="images/star.png">');
       });
 
     });
