@@ -1,7 +1,11 @@
 module.exports = function(grunt) {
   grunt.initConfig({
     connect: {
-      options: {},
+      options: {
+        port: 4200,
+        hostname: 'localhost',
+        base: 'app'
+      },
       test: {
       }
     },
@@ -185,7 +189,7 @@ module.exports = function(grunt) {
     'copy:deployHtml'
   ]);
 
-  grunt.registerTask('develop', ['build', 'fileblocks:develop', 'watch']);
+  grunt.registerTask('develop', ['build', 'fileblocks:develop', 'connect', 'watch']);
 
   grunt.registerTask('release', ['clean:dist', 'build', 'deploy', 'fileblocks:prod']);
 
