@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "dependencies": {},
   "devDependencies": {
+    "@radum/grunt-template-jasmine-requirejs": "git://github.com/radum/grunt-template-jasmine-requirejs.git#master",
     "bower-installer": "^1.3.5",
     "connect-livereload": "~0.3.2",
     "grunt": "^1.3.0",
@@ -24,9 +25,9 @@
     "grunt-open": "~0.2.3",
     "grunt-requirejs": "~0.4.0",
     "grunt-rev": "~0.1.0",
-    "grunt-template-jasmine-requirejs": "^0.2.3",
     "jshint-stylish": "~0.1.5",
     "load-grunt-tasks": "~0.3.0",
+    "lodash": "^4.17.21",
     "time-grunt": "~0.2.8"
   },
   "engines": {

@@ -122,7 +122,7 @@ module.exports = function(grunt) {
           vendor: [
             'app/scripts/lib/requirejs/require.js'
           ],
-          template: require('grunt-template-jasmine-requirejs'),
+          template: require('@radum/grunt-template-jasmine-requirejs'),
           templateOptions: {
             requireConfigFile: ['app/scripts/require.config.js', 'test/require.config.js']
           }
