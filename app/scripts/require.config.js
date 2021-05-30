@@ -5,7 +5,7 @@ require.config({
     'backbone.babysitter': './lib/backbone.babysitter/backbone.babysitter',
     'backbone.wreqr': './lib/backbone.wreqr/backbone.wreqr',
     'bootstrap': './lib/components-bootstrap/bootstrap',
-    'handlebars': './lib/handlebars/handlebars',
+    'handlebars': './lib/handlebars/handlebars.amd',
     'main': './main',
     'jquery': './lib/jquery/jquery',
     'marionette': './lib/marionette/backbone.marionette',

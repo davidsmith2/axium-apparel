@@ -2,7 +2,7 @@ define([
   'entities',
   'handlebars'
 ],
-function(Entities) {
+function(Entities, Handlebars) {
 
   var renderStars = function(starRating) {
     var ret = '';
