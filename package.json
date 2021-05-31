@@ -1,6 +1,6 @@
 {
-  "name": "app",
-  "version": "0.0.0",
+  "name": "axium-apparel",
+  "version": "0.1.0",
   "dependencies": {},
   "devDependencies": {
     "@radum/grunt-template-jasmine-requirejs": "git://github.com/radum/grunt-template-jasmine-requirejs.git#master",
